@@ -1,0 +1,35 @@
+.nav-bg {
+  background-color: var(--color-secundary);
+}
+.inner-text {
+  font-size: 1.2em;
+  padding: 16px 0;
+  gap: 25px;
+}
+
+.nav-link {
+  font-family: var(--font-primary);
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.btn-login {
+  font-size: 1.2em;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.btn-cadastrar {
+  font-size: 1.2em;
+  color: var(--color-terciary);
+  font-weight: 400;
+}
+
+ion-icon {
+  width: 25px;
+  height: 25px;
+  color: var(--color-primary);
+}
