@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace IdWall2.Model
+namespace IdWall.Model
 {
     [Table("Suspeito")]
     public class SuspeitoModel

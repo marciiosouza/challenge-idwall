@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using static IdWall2.Context.AppDbContext;
+using static IdWall.Context.AppDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 

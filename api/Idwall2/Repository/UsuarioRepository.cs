@@ -1,7 +1,7 @@
-﻿using IdWall2.Model;
-using static IdWall2.Context.AppDbContext;
+﻿using IdWall.Model;
+using static IdWall.Context.AppDbContext;
 
-namespace IdWall2.Repository
+namespace IdWall.Repository
 {
     public class UsuarioRepository
     {

@@ -1,10 +1,10 @@
-﻿using IdWall2.Model;
-using IdWall2.Repository;
+﻿using IdWall.Model;
+using IdWall.Repository;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using static IdWall2.Context.AppDbContext;
+using static IdWall.Context.AppDbContext;
 
-namespace IdWall2.Controllers
+namespace IdWall.Controllers
 {
     [Route("[controller]")]
     [ApiController]
