@@ -17,6 +17,29 @@ namespace IdWall.Controllers
             usuarioRepository = new UsuarioRepository(ctx);
         }
 
+        [HttpGet]
+        public ActionResult<List<UsuarioModel>> Get()
+        {
+            try
+            {
+                var lista = usuarioRepository.ListarTodos();
+                if (lista != null)
+                {
+                    return Ok(lista);
+
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+
+        }
+
         [HttpPost]
         public ActionResult<UsuarioModel> Post([FromBody] UsuarioModel usuariomodel)
         {

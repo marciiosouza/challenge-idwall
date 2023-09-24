@@ -31,7 +31,7 @@ namespace IdWall.Repository
 
         public SuspeitoModel ConsultarPorNome(String nome)
         {
-            var pessoa = dataBaseContext.suspeito.Where(r => r.nome.Contains(nome)).FirstOrDefault<SuspeitoModel>();
+            var pessoa = dataBaseContext.suspeito.Where(r => r.Nome.Contains(nome)).FirstOrDefault<SuspeitoModel>();
 
             return pessoa;
         }
@@ -40,6 +40,37 @@ namespace IdWall.Repository
         {
             dataBaseContext.suspeito.Add(pessoa);
             dataBaseContext.SaveChanges();
+        }
+
+        public void ExcluirSuspeito(int id)
+        {
+            var suspeito = new SuspeitoModel { SuspeitoId = id };
+
+            dataBaseContext.suspeito.Remove(suspeito); dataBaseContext.SaveChanges();
+        }
+
+        public IList<SuspeitoModel>ListarPorClassificacao(char classificacao)
+        {
+            var lista = dataBaseContext.suspeito.Where(e => e.Classificacao.Equals(classificacao)).ToList<SuspeitoModel>();
+            return lista;
+        }
+
+        public IList<SuspeitoModel>ListarPorNacionalidade(string nacionalidade)
+        {
+            var lista = dataBaseContext.suspeito.Where(e => e.Nacionalidade.Equals(nacionalidade)).ToList<SuspeitoModel>();
+            return lista;
+        }
+
+        public int ContarTotalSuspeito()
+        {
+            var contador = dataBaseContext.suspeito.Count();
+            return contador;
+        }
+
+        public int ContarPorNacionalidade(string nacionalidade)
+        {
+            var total = dataBaseContext.suspeito.Count(s => s.Nacionalidade == nacionalidade);
+            return total;
         }
     }
 }

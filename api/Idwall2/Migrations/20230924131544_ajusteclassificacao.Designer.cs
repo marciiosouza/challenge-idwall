@@ -2,6 +2,7 @@
 using IdWall.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 
@@ -10,9 +11,11 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace IdWall.Migrations
 {
     [DbContext(typeof(AppDbContext.DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230924131544_ajusteclassificacao")]
+    partial class ajusteclassificacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,27 +33,22 @@ namespace IdWall.Migrations
 
                     OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SuspeitoId"));
 
-                    b.Property<string>("Classificacao")
+                    b.Property<string>("classificacao")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(1)")
                         .HasColumnName("CLASSIFICACAO");
 
-                    b.Property<string>("Endereco")
+                    b.Property<string>("endereco")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)")
                         .HasColumnName("ENDERECO");
 
-                    b.Property<string>("Nacionalidade")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)")
-                        .HasColumnName("NACIONALIDADE");
-
-                    b.Property<string>("Nome")
+                    b.Property<string>("nome")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)")
                         .HasColumnName("NOME");
 
-                    b.Property<string>("Sexo")
+                    b.Property<string>("sexo")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(1)")
                         .HasColumnName("SEXO");

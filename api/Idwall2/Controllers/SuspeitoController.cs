@@ -1,4 +1,5 @@
-﻿using IdWall.Model;
+﻿using IdWall.Migrations;
+using IdWall.Model;
 using IdWall.Repository;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -11,20 +12,20 @@ namespace IdWall.Controllers
     public class SuspeitoController : ControllerBase
     {
 
-        private readonly SuspeitoRepository pessoaRepository;
+        private readonly SuspeitoRepository suspeitoRepository;
 
 
         public SuspeitoController(DataBaseContext context)
         {
-            pessoaRepository = new SuspeitoRepository(context);
+            suspeitoRepository = new SuspeitoRepository(context);
         }
 
         [HttpGet]
-        public ActionResult<List<SuspeitoModel>> Get()
+        public ActionResult<List<SuspeitoModel>> ListarTodos()
         {
             try
             {
-                var lista = pessoaRepository.Listar();
+                var lista = suspeitoRepository.Listar();
                 if(lista != null)
                 {
                     return Ok(lista);
@@ -44,12 +45,12 @@ namespace IdWall.Controllers
 
 
         [HttpGet("{id:int}")]
-        public ActionResult<SuspeitoModel> GetporId([FromRoute] int id)
+        public ActionResult<SuspeitoModel> ListarPorId([FromRoute] int id)
         {
 
             try
             {
-                var pessoalModel = pessoaRepository.ConsultarPorId(id);
+                var pessoalModel = suspeitoRepository.ConsultarPorId(id);
                 return Ok(pessoalModel);
             }
             catch (KeyNotFoundException e)
@@ -63,7 +64,7 @@ namespace IdWall.Controllers
         {
             try
             {
-                pessoaRepository.InserirSuspeito(suspeitoModel);
+                suspeitoRepository.InserirSuspeito(suspeitoModel);
                 var location = new Uri(Request.GetEncodedUrl() + "/" + suspeitoModel.SuspeitoId);
                 return Created(location, suspeitoModel);
             }
@@ -72,6 +73,61 @@ namespace IdWall.Controllers
                 return BadRequest(new {message = $"Não foi possível cadastrar orepresentante"});
             }
         }
-        
+
+
+        [HttpDelete("{id:int}")]
+        public ActionResult<SuspeitoModel> DeletarSuspeito([FromRoute] int id)
+        {
+            try
+            {
+                var suspeitoModel = suspeitoRepository.ConsultarPorId(id);
+
+                if (suspeitoModel != null)
+                {
+                    suspeitoRepository.ExcluirSuspeito(id);
+                    // Retorno Sucesso.
+                    // Efetuou a exclusão, porém sem necessidade de informar os dados.
+                    return NoContent();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+        }
+
+
+        [HttpGet("classificacao/{classificacao}")]
+        public ActionResult<List<SuspeitoModel>> ListarPorClassificacao([FromRoute] char classificacao)
+        {
+            var lista = suspeitoRepository.ListarPorClassificacao(classificacao);
+            return Ok(lista);
+        }
+
+        [HttpGet("nacionalidade/{nacionalidade}")]
+        public ActionResult<List<SuspeitoModel>> ListarporNacionalidade([FromRoute] string nacionalidade)
+        {
+            var lista = suspeitoRepository.ListarPorNacionalidade(nacionalidade);
+            return Ok(lista);
+        }
+
+        [HttpGet("contador")]
+        public int ContadorSuspeitoTotal()
+        {
+            var contador = suspeitoRepository.ContarTotalSuspeito();
+            return contador;
+        }
+
+        [HttpGet("contadorNacionalidade/{nacionalidade}")]
+        public int ContadorSuspeitoPorNacionalidade(string nacionalidade)
+        {
+            var contador = suspeitoRepository.ContarPorNacionalidade(nacionalidade);
+            return contador;
+        }
+
     }
 }
