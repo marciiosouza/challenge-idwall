@@ -1,10 +1,10 @@
-﻿using IdWall2.Model;
-using IdWall2.Repository;
+﻿using IdWall.Model;
+using IdWall.Repository;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using static IdWall2.Context.AppDbContext;
+using static IdWall.Context.AppDbContext;
 
-namespace IdWall2.Controllers
+namespace IdWall.Controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -15,6 +15,29 @@ namespace IdWall2.Controllers
         public UsuarioController(DataBaseContext ctx)
         {
             usuarioRepository = new UsuarioRepository(ctx);
+        }
+
+        [HttpGet]
+        public ActionResult<List<UsuarioModel>> Get()
+        {
+            try
+            {
+                var lista = usuarioRepository.ListarTodos();
+                if (lista != null)
+                {
+                    return Ok(lista);
+
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+
         }
 
         [HttpPost]

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace IdWall2.Model
+namespace IdWall.Model
 {
     [Table("Suspeito")]
     public class SuspeitoModel
@@ -13,25 +13,28 @@ namespace IdWall2.Model
         public int SuspeitoId { get; set; }
 
         [Column("NOME")]
-        public string nome { get; set; }
+        public string Nome { get; set; }
         [Column("CLASSIFICACAO")]
-        public string classificacao { get; set; }
+        public char Classificacao { get; set; }
         [Column("SEXO")]
-        public char sexo { get; set; }
+        public char Sexo { get; set; }
         [Column("ENDERECO")]
-        public string endereco { get; set; }
+        public string Endereco { get; set; }
+        [Column("NACIONALIDADE")]
+        public string Nacionalidade { get; set; }
 
         public SuspeitoModel()
         {
         }
 
-        public SuspeitoModel(int suspeitoId, string nome, string classificacao, char sexo, string endereco)
+        public SuspeitoModel(int suspeitoId, string nome, char classificacao, char sexo, string endereco, string nacionalidade)
         {
             SuspeitoId = suspeitoId;
-            this.nome = nome;
-            this.classificacao = classificacao;
-            this.sexo = sexo;
-            this.endereco = endereco;
+            Nome = nome;
+            Classificacao = classificacao;
+            Sexo = sexo;
+            Endereco = endereco;
+            Nacionalidade = nacionalidade;
         }
     }
 }

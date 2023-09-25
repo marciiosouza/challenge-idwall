@@ -1,7 +1,7 @@
-﻿using IdWall2.Model;
+﻿using IdWall.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace IdWall2.Context
+namespace IdWall.Context
 {
     public class AppDbContext
     {

@@ -11,8 +11,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace IdWall.Migrations
 {
     [DbContext(typeof(AppDbContext.DataBaseContext))]
-    [Migration("20230923223738_teste")]
-    partial class teste
+    [Migration("20230924131544_ajusteclassificacao")]
+    partial class ajusteclassificacao
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace IdWall.Migrations
 
             OracleModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("IdWall.Model.PessoasModel", b =>
+            modelBuilder.Entity("IdWall.Model.SuspeitoModel", b =>
                 {
                     b.Property<int>("SuspeitoId")
                         .ValueGeneratedOnAdd()
@@ -35,7 +35,7 @@ namespace IdWall.Migrations
 
                     b.Property<string>("classificacao")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)")
+                        .HasColumnType("NVARCHAR2(1)")
                         .HasColumnName("CLASSIFICACAO");
 
                     b.Property<string>("endereco")
@@ -55,7 +55,25 @@ namespace IdWall.Migrations
 
                     b.HasKey("SuspeitoId");
 
-                    b.ToTable("Pessoas");
+                    b.ToTable("Suspeito");
+                });
+
+            modelBuilder.Entity("IdWall.Model.UsuarioModel", b =>
+                {
+                    b.Property<string>("Usuario")
+                        .HasColumnType("NVARCHAR2(450)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.HasKey("Usuario");
+
+                    b.ToTable("Usuario");
                 });
 #pragma warning restore 612, 618
         }

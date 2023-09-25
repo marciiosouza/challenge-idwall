@@ -1,7 +1,7 @@
-﻿using IdWall2.Model;
-using static IdWall2.Context.AppDbContext;
+﻿using IdWall.Model;
+using static IdWall.Context.AppDbContext;
 
-namespace IdWall2.Repository
+namespace IdWall.Repository
 {
     public class UsuarioRepository
     {
@@ -12,9 +12,24 @@ namespace IdWall2.Repository
             dataBaseContext = ctx;
         }
 
-        public void InserirUsuario(UsuarioModel usuario) {
+        public IList<UsuarioModel> ListarTodos()
+        {
+            var lista = new List<UsuarioModel>();
+            lista = dataBaseContext.usuario.ToList<UsuarioModel>();
+            return lista;
+        }
+
+        public void InserirUsuario(UsuarioModel usuario)
+        {
             dataBaseContext.usuario.Add(usuario);
             dataBaseContext.SaveChanges();
         }
+
+        //public void ExcluirUsuario(string usuario)
+        //{
+        //    var usuario = new UsuarioModel { Usuario = usu };
+        //}
+
+
     }
 }

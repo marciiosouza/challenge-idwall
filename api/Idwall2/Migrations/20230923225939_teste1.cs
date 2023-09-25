@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace IdWall2.Migrations
+namespace IdWall.Migrations
 {
     /// <inheritdoc />
     public partial class teste1 : Migration
