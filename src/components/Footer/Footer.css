@@ -1,0 +1,20 @@
+footer {
+  background-color: var(--color-primary);
+  color: white;
+  height: 112px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h6 {
+  margin: 0 70px;
+}
+
+a {
+  text-decoration: none;
+}
+
+#social {
+  color: white;
+}

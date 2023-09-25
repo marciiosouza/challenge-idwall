@@ -1,0 +1,46 @@
+.alinhamento {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  gap: 25px;
+  padding: 5rem;
+}
+
+.icon-card {
+  width: 90px;
+  height: 90px;
+  padding: 16px;
+  margin: 15px auto;
+}
+
+.card-body {
+  text-align: center;
+}
+
+
+.card-title {
+  font-family: var(--font-primary);
+  padding-bottom: 1em;
+  
+}
+
+p {
+  font-size: 1em;
+}
+
+.btn-card {
+  border: none;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+ion-icon {
+  width: 38px;
+  color: var(--color-primary);
+}
+
+.btn-card:hover {
+  color: var(--color-primary);
+}

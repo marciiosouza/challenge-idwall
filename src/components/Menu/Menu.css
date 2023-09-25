@@ -1,10 +1,16 @@
 .nav-bg {
   background-color: var(--color-secundary);
 }
+
+img, svg {
+  vertical-align: middle;
+  width: 100px;
+}
+
 .inner-text {
-  font-size: 1.2em;
-  padding: 16px 0;
-  gap: 25px;
+  font-size: 1em;
+  padding: 12px 0;
+  gap: 20px;
 }
 
 .nav-link {
