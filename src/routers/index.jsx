@@ -1,9 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
-import Login from "../components/Login/Login";
+import Home from "../pages/Home/Home";
+import Login from "../pages/Login/Login";
 import { PageLayout } from "../pages/PageLayout";
-
-
 
 export function Routers() {
   return (
@@ -13,8 +11,8 @@ export function Routers() {
           <PageLayout />
         }>
           <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
         </Route>
+          <Route path='/login' element={<Login />} />
       </Routes>
     </BrowserRouter>
   )

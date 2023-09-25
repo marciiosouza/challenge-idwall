@@ -1,10 +1,11 @@
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import '../assets/css/style.css';
-// import React from 'react';
+import '../../assets/css/style.css';
+import Cards from '../../components/Cards/Cards';
 
 export default function Home() {
   return (
+
+    <>
       <section id="banner">
         <div className="container">
           <div className="text-banner">
@@ -14,5 +15,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <main>
+        <Cards />
+      </main>
+    </>
   )
 }

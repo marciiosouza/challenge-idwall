@@ -10,8 +10,6 @@ export const Cards = () => {
   return (
     <section id="cards">
       <div className="container">
-
-
         <div className="alinhamento">
           <div className="inner-card">
             <Card style={{ width: '20rem' }}>

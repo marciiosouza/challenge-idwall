@@ -1,5 +1,4 @@
 /* Home */
-
 #banner {
   width: 100%;
   height: 568px;
@@ -14,7 +13,7 @@
   text-align: center;
 }
 
-h2 {
+.tittle-banner {
   font-family: var(--font-primary);
   font-size: 3em;
   font-weight: 700;
@@ -39,4 +38,57 @@ p {
   color: aquamarine;
   border: 1px solid aqua;
 
+}
+
+/* Login */
+#bg-login {
+  background-color: var(--color-descricao);
+}
+
+#box-login {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.box {
+  width: 96%;
+  max-width: 516px;
+  background-color: var(--color-secundary);
+  padding: 64px 48px;
+  border-radius: 10px;
+
+  box-shadow: -1px 5px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.logo-login {
+padding-bottom: 46px;
+}
+
+.gray {
+  color: var(--color-destaque);
+  font-weight: 400;
+}
+
+.login {
+  background-color: var(--color-primary);
+  width: 100%;
+  border: none;
+}
+
+.login:hover {
+  /* border: 2px solid var(--color-primary); */
+  background-color: var(--color-primary);
+  /* color: var(--color-primary); */
+}
+
+.senha {
+  text-decoration: none;
+  padding: 15px 0;
+  color: var(--color-primary);
+  font-weight: 600;
 }
