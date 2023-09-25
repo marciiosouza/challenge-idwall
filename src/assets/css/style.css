@@ -86,6 +86,10 @@ padding-bottom: 46px;
   /* color: var(--color-primary); */
 }
 
+.person {
+  background-image: url(../images/person-outline.svg);
+}
+
 .senha {
   text-decoration: none;
   padding: 15px 0;
