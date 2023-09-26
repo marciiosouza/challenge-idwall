@@ -12,6 +12,16 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
 builder.Services.AddDbContext<DataBaseContext>(options => options.UseOracle(connectionString).EnableSensitiveDataLogging(true));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost5173", builder =>
+    {
+        builder.WithOrigins("http://localhost:5173")
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
+
 
 var app = builder.Build();
 
@@ -21,6 +31,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("AllowLocalhost5173");
 
 app.UseHttpsRedirection();
 

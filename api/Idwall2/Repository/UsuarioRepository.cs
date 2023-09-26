@@ -1,4 +1,5 @@
 ﻿using IdWall.Model;
+using Microsoft.EntityFrameworkCore;
 using static IdWall.Context.AppDbContext;
 
 namespace IdWall.Repository
@@ -24,6 +25,40 @@ namespace IdWall.Repository
             dataBaseContext.usuario.Add(usuario);
             dataBaseContext.SaveChanges();
         }
+
+        public UsuarioModel ExisteUsuario(string email, string senha)
+        {
+            // Consulta o banco de dados para encontrar um usuário com o email especificado
+            var usuario = dataBaseContext.usuario.FirstOrDefault(u => u.Email == u.Senha);
+
+            if (usuario != null)
+            {
+                // Verifique se a senha corresponde à senha no banco de dados
+                if (usuario.Senha == senha)
+                {
+                    return usuario; // Senha corresponde, retornamos o usuário
+                }
+            }
+
+            return null; // Usuário não encontrado ou senha incorreta, retornamos null
+        }
+
+        //public UsuarioModel ExisteUsuario(string email, string senha)
+        //{
+        //    // Consulta o banco de dados para encontrar um usuário com o email especificado
+        //    var usuario = dataBaseContext.usuario.FirstOrDefault(u => u.Email == email);
+
+        //    if (usuario != null)
+        //    {
+        //        // Verifique se a senha corresponde à senha no banco de dados
+        //        if (usuario.Senha == senha)
+        //        {
+        //            return usuario; // Senha corresponde, retornamos o usuário
+        //        }
+        //    }
+
+        //    return null; // Usuário não encontrado ou senha incorreta, retornamos null
+        //}
 
         //public void ExcluirUsuario(string usuario)
         //{
