@@ -46,13 +46,37 @@ namespace IdWall.Controllers
             try
             {
                 usuarioRepository.InserirUsuario(usuariomodel);
-                var location = new Uri(Request.GetEncodedUrl()+"/"+ usuariomodel.Usuario);
+                var location = new Uri(Request.GetEncodedUrl()+"/"+ usuariomodel.Email);
 
                 return Created(location, usuariomodel);
             }catch (Exception ex)
             {
                 return BadRequest(new { message = $"Não foi possível cadastrar suspeito" });
             }
+        }
+
+
+        [HttpPost("/encontrarUsuario")]
+        public ActionResult<UsuarioModel> EncontrarUsuario([FromBody] UsuarioModel usuariomodel)
+        {
+            
+
+            var usuarioEncontrado = usuarioRepository.ExisteUsuario(usuariomodel.Email, usuariomodel.Senha);
+
+            if (usuarioEncontrado != null)
+            {
+                return Ok(usuarioEncontrado); // Retorna o usuário encontrado
+            }
+
+            return NotFound("Usuário não encontrado");
+        }
+
+        [HttpOptions]
+        public IActionResult EncontrarUsuarioOptions()
+        {
+            // Adicione este código
+            Response.Headers.Add("Access-Control-Allow-Origin", "http://localhost:5173");
+            return Ok();
         }
 
     }

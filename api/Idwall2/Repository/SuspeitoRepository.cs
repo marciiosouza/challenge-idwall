@@ -42,11 +42,12 @@ namespace IdWall.Repository
             dataBaseContext.SaveChanges();
         }
 
-        public void ExcluirSuspeito(int id)
+        public void ExcluirSuspeito(SuspeitoModel suspeitoModel)
         {
-            var suspeito = new SuspeitoModel { SuspeitoId = id };
+            //var suspeito = new SuspeitoModel { SuspeitoId = id };
 
-            dataBaseContext.suspeito.Remove(suspeito); dataBaseContext.SaveChanges();
+            dataBaseContext.suspeito.Remove(suspeitoModel); 
+            dataBaseContext.SaveChanges();
         }
 
         public IList<SuspeitoModel>ListarPorClassificacao(char classificacao)

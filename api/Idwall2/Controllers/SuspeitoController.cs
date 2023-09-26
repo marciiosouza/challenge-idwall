@@ -1,4 +1,4 @@
-﻿using IdWall.Migrations;
+﻿
 using IdWall.Model;
 using IdWall.Repository;
 using Microsoft.AspNetCore.Http.Extensions;
@@ -84,14 +84,14 @@ namespace IdWall.Controllers
 
                 if (suspeitoModel != null)
                 {
-                    suspeitoRepository.ExcluirSuspeito(id);
+                    suspeitoRepository.ExcluirSuspeito(suspeitoModel);
                     // Retorno Sucesso.
                     // Efetuou a exclusão, porém sem necessidade de informar os dados.
                     return NoContent();
                 }
                 else
                 {
-                    return NotFound();
+                    return NotFound("Não encontrado!");
                 }
             }
             catch (Exception e)
