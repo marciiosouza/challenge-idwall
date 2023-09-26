@@ -11,7 +11,7 @@ export const Cards = () => {
     <section id="cards">
       <div className="container">
         <div className="row alinhamento">
-          <div className="col-lg-3 col-md-6 col-sm-12">
+          <div className="col-lg-2 col-md-12">
             <div className="inner-card">
               <Card>
                 <Card.Img variant="top" src={iconSuspeito} className="icon-card" />
@@ -25,7 +25,7 @@ export const Cards = () => {
               </Card>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-12">
+          <div className="col-lg-3 col-md-12">
             <div className="inner-card">
               <Card>
                 <Card.Img variant="top" src={iconPessoa} className="icon-card" />
@@ -39,7 +39,7 @@ export const Cards = () => {
               </Card>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-12">
+          <div className="col-lg-3 col-md-12">
             <div className="inner-card">
               <Card>
                 <Card.Img variant="top" src={iconClassificacao} className="icon-card" />
@@ -53,7 +53,7 @@ export const Cards = () => {
               </Card>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-12">
+          <div className="col-lg-3 col-md-12">
             <div className="inner-card">
               <Card>
                 <Card.Img variant="top" src={iconLocal} className="icon-card" />

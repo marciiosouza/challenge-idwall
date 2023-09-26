@@ -1,24 +1,31 @@
 footer {
   background-color: var(--color-gray);
-  height: 100px;
-  
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 .rodape {
   display: flex;
-    justify-content: center;
-    align-items: center;
-  
-  
-
-  margin: 0 50px;
-
+  justify-content: space-between;
+  align-items: center;
 }
 
-a {
+
+.links-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-repo {
   text-decoration: none;
+  font-weight: 600;
+  color: var(--color-primary);
 }
 
-#social {
-  color: white;
+.link-repo:hover {
+  color: var(--color-primary);
 }

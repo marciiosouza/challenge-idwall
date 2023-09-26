@@ -25,10 +25,6 @@
   
 }
 
-p {
-  font-size: 1em;
-}
-
 .btn-card {
   border: none;
   color: var(--color-primary);

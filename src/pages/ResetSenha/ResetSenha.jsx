@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button"
 import { Link } from "react-router-dom"
 import { Helmet } from "react-helmet";
 
-export const FormSenha = () => {
+export const ResetSenha = () => {
   
   return (
 
@@ -50,4 +50,4 @@ export const FormSenha = () => {
   )
 }
 
-export default FormSenha
+export default ResetSenha

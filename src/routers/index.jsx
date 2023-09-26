@@ -3,7 +3,8 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import { PageLayout } from "../pages/PageLayout";
 import Cadastro from "../pages/Cadastro/Cadastro";
-import FormSenha from "../pages/FormSenha/FormSenha";
+import FormSenha, { ResetSenha } from "../pages/ResetSenha/ResetSenha";
+import Banner from "../components/Banner/Banner";
 
 
 export function Routers() {
@@ -15,11 +16,12 @@ export function Routers() {
           <PageLayout />
         }>
           <Route path='/' element={<Home />} />
+          <Route path='/suspeitos' element={<Banner />} />
           
         </Route>
           <Route path='/login' element={<Login />} />
           <Route path='/cadastro' element={<Cadastro />} />
-          <Route path='/recuperar-senha' element={<FormSenha />} />
+          <Route path='/recuperar-senha' element={<ResetSenha />} />
       </Routes>
     </BrowserRouter>
   )

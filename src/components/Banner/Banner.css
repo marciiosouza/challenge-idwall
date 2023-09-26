@@ -1,0 +1,19 @@
+#banner-suspeitos {
+  width: 100%;
+  height: 166px;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+ 
+  
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.tittle-suspeito {
+  color: white;
+}
