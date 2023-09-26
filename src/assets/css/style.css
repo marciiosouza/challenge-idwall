@@ -6,11 +6,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* background-image: url(../images/banner-01.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; */
+  
 }
 
 .text-banner {
   color: white;
   text-align: center;
+  font-size: 1.2rem;
+  max-width: 100%;
+}
+.tittle-home {
+  font-weight: 700;
+  font-size: 2em;
+  padding-bottom: 25px;
+  max-width: 100%;
 }
 
 .tittle-banner {
@@ -28,15 +41,15 @@ p {
 
 .btn-banner {
   font-weight: 500;
-  color: white;
-  border-radius: 50px;
+  color: var(--color-primary);
+  background-color: white;
   border: 1px solid;
   padding: 15px;
 }
 
 .btn-banner:hover {
-  color: aquamarine;
-  border: 1px solid aqua;
+  color: white;
+  border: 1px solid var(--color-gray);
 
 }
 
@@ -70,14 +83,15 @@ padding-bottom: 46px;
 }
 
 .gray {
-  color: var(--color-destaque);
-  font-weight: 400;
+  color: var(--color-description);
+  font-weight: 500;
 }
 
 .login {
   background-color: var(--color-primary);
   width: 100%;
   border: none;
+ 
 }
 
 .login:hover {

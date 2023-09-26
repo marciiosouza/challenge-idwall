@@ -1,18 +1,20 @@
 :root {
 
   /* Fonts */
-  --font-primary: font-family: 'Inter', sans-serif;
+  --font-primary: font-family: 'Roboto', sans-serif;
+  --font-secundary: font-family: 'Raleway', sans-serif;
+  --font-tertiary: font-family: 'Inclusive Sans', sans-serif;
 
   /* Color */
   --color-primary: #5500ff;
-  --color-secundary: #ffffff;
-  --color-tertiary: #000000;
-  --color-destaque: #595959;
+  --color-gray: #f5f5f5;
+  --color-text: #23292e;
+  --color-description: #666666;
 
 }
 
 * {
-  font-family: var(--font-primary);
+  font-family: var(--font-secundary);
 
   margin: 0;
   padding: 0;

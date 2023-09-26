@@ -1,19 +1,23 @@
-import "../../assets/css/style.css"
-import FloatingLabel from "react-bootstrap/FloatingLabel"
-import Form from "react-bootstrap/Form"
-import Logo from "../../assets/images/logo-idwall.svg"
-import Button from "react-bootstrap/Button"
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
+import "../../assets/css/style.css";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Form from "react-bootstrap/Form";
+import Logo from "../../assets/images/logo-idwall.svg";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export const Cadastro = () => {
-  const navigate = useNavigate()
   return (
+    <>
+     <Helmet>
+      <title>idwall | Cadastro</title>
+    </Helmet>
+
     <section id="bg-login">
       <div className="container">
         <div id="box-login">
           <div className="box">
-            <img className="logo-login" src={Logo} alt="Logo Idwall" />
+            <Link to="/"> <img className="logo-login" src={Logo} alt="Logo Idwall" /> </Link>
             <h2>Criar conta</h2>
             <h6 className="pb-4 gray">
               Insira os dados para criar a sua conta.
@@ -50,7 +54,7 @@ export const Cadastro = () => {
             <div className="pt-2">
               <div className="row">
                 <p>
-                  Já tenho conta
+                  Já tenho conta &nbsp;
                   <Link className="senha" to="/login">
                     Logar
                   </Link>
@@ -61,6 +65,7 @@ export const Cadastro = () => {
         </div>
       </div>
     </section>
+    </>
   )
 }
 

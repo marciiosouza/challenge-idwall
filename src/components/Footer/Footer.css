@@ -1,11 +1,18 @@
 footer {
-  background-color: var(--color-primary);
-  color: white;
-  height: 112px;
+  background-color: var(--color-gray);
+  height: 100px;
+  
+}
 
+.rodape {
   display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
+  
+  
+
+  margin: 0 50px;
+
 }
 
 a {

@@ -23,7 +23,7 @@ export const Menu = () => {
           </Nav>
           <ion-icon name="person-outline" className="icon-login"></ion-icon>
           <Button variant="" className="btn-login" onClick={() => navigate ("/login")} >Login</Button>
-          <Button variant="" className="btn-cadastrar">Cadastrar</Button>
+          <Button variant="" className="btn-cadastrar" onClick={() => navigate ("/cadastro")}>Cadastrar</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
