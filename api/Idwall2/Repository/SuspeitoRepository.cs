@@ -36,9 +36,9 @@ namespace IdWall.Repository
             return pessoa;
         }
 
-        public void InserirSuspeito(SuspeitoModel pessoa)
+        public void InserirSuspeito(SuspeitoModel suspeito)
         {
-            dataBaseContext.suspeito.Add(pessoa);
+            dataBaseContext.suspeito.Add(suspeito);
             dataBaseContext.SaveChanges();
         }
 

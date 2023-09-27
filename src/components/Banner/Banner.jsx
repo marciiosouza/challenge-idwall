@@ -41,7 +41,7 @@ const Banner = () => {
         <div>
         <div className="container">
           <div className="grid">
-            <h2 className="tittle-suspeito">Lista de Suspeitos</h2>
+            <h2 className="tittle-suspeito">Cadastrar Suspeito</h2>
             {erro && <p>{erro}</p>}
           </div>
         </div>

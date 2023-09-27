@@ -5,14 +5,14 @@ import Form from "react-bootstrap/Form"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Button from "react-bootstrap/Button"
 import Logo from "../../assets/images/logo-idwall.svg"
-import Alert from "react-bootstrap/Alert" // Importe o componente de alerta do Bootstrap
+import Alert from "react-bootstrap/Alert" 
 
 const Login = () => {
   const navigate = useNavigate()
 
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
-  const [erro, setErro] = useState(null) // Use null para inicializar o erro como nulo
+  const [erro, setErro] = useState(null) 
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value)

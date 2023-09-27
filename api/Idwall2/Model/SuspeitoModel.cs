@@ -16,16 +16,11 @@ namespace IdWall.Model
         public string Nome { get; set; }
 
         [Column("CLASSIFICACAO")]
-        [MinLength(10)]
         public char Classificacao { get; set; }
 
         [Column("SEXO")]
-        [MinLength(10)]
         public char Sexo { get; set; }
 
-        [Column("ENDERECO")]
-        [MinLength(10)]
-        public string Endereco { get; set; }
 
         [Column("NACIONALIDADE")]
         [MaxLength(2)]
@@ -35,13 +30,12 @@ namespace IdWall.Model
         {
         }
 
-        public SuspeitoModel(int suspeitoId, string nome, char classificacao, char sexo, string endereco, string nacionalidade)
+        public SuspeitoModel(int suspeitoId, string nome, char classificacao, char sexo, string nacionalidade)
         {
             SuspeitoId = suspeitoId;
             Nome = nome;
             Classificacao = classificacao;
             Sexo = sexo;
-            Endereco = endereco;
             Nacionalidade = nacionalidade;
         }
     }

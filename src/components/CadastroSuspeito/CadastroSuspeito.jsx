@@ -2,39 +2,56 @@ import "./CadastroSuspeito.css"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
-import { Link, useNavigate } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import { useState } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 
 export const Cadastro = () => {
-  const navigate = useNavigate()
-  const [email, setEmail] = useState("")
-  const [senha, setSenha] = useState("")
-  const [confirmarSenha, confirmarSetSenha] = useState("")
+ 
+  //Constates para cadastrar suspeito
+  const [nomeSuspeito, setNomeSuspeitopain] = useState("")
+  const [dataNascimentoSuspeito , setDataNascimentoSuspeito] = useState("")
+  const [sexoSuspeito , setSexoSuspeito] = useState("")
+  const [ classificacao , setClassificacao] = useState("")
+  const[naciolidadeSuspeito , setNacionalidadeSuspeito] = useState("")
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value)
+
+  function changeNomeSuspeito(event){
+    setNomeSuspeitopain(event.target.value)
   }
-  const handleSenhaChange = (event) => {
-    setSenha(event.target.value)
+  function changedataNascimentoSuspeito(event){
+    setDataNascimentoSuspeito(event.target.value)
   }
-  const handleConfirmarSenhaChange = (event) => {
-    confirmarSetSenha(event.target.value)
+  function changeSexoSuspeito(event){
+    
+    setSexoSuspeito(event.target.value)
   }
+  function changeClassificacao(event){
+    setClassificacao(event.target.value)
+  }
+  const changeNacionalidadeSuspeito = (event) => {
+    setNacionalidadeSuspeito(event.target.value)
+  }
+
+
   const handleCadastro = async () => {
     try {
       // Faça sua lógica de autenticação aqui
       // Por exemplo, fazer uma solicitação de API para autenticar o usuário
-      const response = await fetch("https://localhost:7213/usuario", {
+      const response = await fetch("https://localhost:7213/Suspeito", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, senha }),
+        body: JSON.stringify(
+          { 
+            "nome": nomeSuspeito,
+            "classificacao" :classificacao,
+            "sexo" : sexoSuspeito,
+            "nacionalidade" :naciolidadeSuspeito}),
       })
       if (response.ok) {
-        navigate("/login") // Redirecione para a página de sucesso
+        console.log('feito') // Redirecione para a página de sucesso
       } else {
         setErro("Credenciais inválidas. Tente novamente.")
       }
@@ -68,10 +85,10 @@ export const Cadastro = () => {
                       controlId="floatingInput"
                       label="Nome"
                       className="mb-3"
-                      onChange={handleEmailChange}
-                      value={email}
+                      
+                     
                     >
-                      <Form.Control type="name" placeholder="Nome" />
+                      <Form.Control  type="name" placeholder="Nome" value={nomeSuspeito} onChange={changeNomeSuspeito} />
                     </FloatingLabel>
                   </Col>
 
@@ -80,10 +97,8 @@ export const Cadastro = () => {
                       controlId="formDate"
                       label="Data"
                       className="mb-3"
-                      onChange={handleEmailChange}
-                      value={email}
                     >
-                      <Form.Control type="date" placeholder="Data" />
+                      <Form.Control  type="date" placeholder="Data" value={dataNascimentoSuspeito} onChange={changedataNascimentoSuspeito} />
                     </FloatingLabel>
                   </Col>
                 </Row>
@@ -94,10 +109,10 @@ export const Cadastro = () => {
                       label="Sexo"
                       className="mb-3"
                     >
-                      <Form.Select aria-label="Floating label select example">
+                      <Form.Select value={sexoSuspeito} onChange={changeSexoSuspeito} aria-label="Floating label select example">
                         <option></option>
-                        <option value="1">Masculino</option>
-                        <option value="2">Feminino</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
                       </Form.Select>
                     </FloatingLabel>
                   </Col>
@@ -111,6 +126,7 @@ export const Cadastro = () => {
                       <Form.Select
                         aria-label="Floating label select example"
                         required
+                        
                       >
                         <option></option>
                         <option value="1">FBI</option>
@@ -125,12 +141,12 @@ export const Cadastro = () => {
                       label="Classificação"
                       className="mb-3"
                     >
-                      <Form.Select aria-label="Floating label select example">
+                      <Form.Select value={classificacao} onChange={changeClassificacao} aria-label="Floating label select example">
                         <option></option>
-                        <option value="1" className="">
+                        <option value="A" className="">
                           Amarelo
                         </option>
-                        <option value="2" className="">
+                        <option value="B" className="">
                           Vermelho
                         </option>
                       </Form.Select>
@@ -141,8 +157,10 @@ export const Cadastro = () => {
                   className="mb-3"
                   controlId="floatingInput"
                   label="Nacionalidade"
+                  onChange={changeNacionalidadeSuspeito}
+                  value={naciolidadeSuspeito}
                 >
-                  <Form.Control type="password" placeholder="Senha" />
+                  <Form.Control  placeholder="Senha" />
                 </FloatingLabel>
                 <Button className="btn-suspeito" onClick={handleCadastro}>
                   Cadastrar
@@ -156,6 +174,6 @@ export const Cadastro = () => {
       </section>
     </>
   )
-}
+            }
 
 export default Cadastro

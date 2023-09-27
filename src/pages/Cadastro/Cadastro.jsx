@@ -8,12 +8,14 @@ import { Helmet } from "react-helmet";
 import { useState } from "react";
 
 export const Cadastro = () => {
+  // Constantes para especificar cadasto usuario
   const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
   const [confirmarSenha, confirmarSetSenha] = useState("")
   
   const handleEmailChange = (event) => {
+    
     setEmail(event.target.value)
   }
   const handleSenhaChange = (event) => {
@@ -45,6 +47,8 @@ export const Cadastro = () => {
     }
   }
   
+
+
   return (
     <>
      <Helmet>
