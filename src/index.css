@@ -11,6 +11,10 @@
   --color-text: #23292e;
   --color-description: #666666;
 
+
+  --color-menor-risco: #FFC700;
+  --color-maior-risco: #FF0000;
+
 }
 
 * {
@@ -21,5 +25,6 @@
 }
 
 p {
-  font-size: 1rem !important;
+    margin-top: 0;
+    margin-bottom: 0;
 }

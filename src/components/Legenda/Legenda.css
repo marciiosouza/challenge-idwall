@@ -1,0 +1,43 @@
+.circle-yellow,
+.circle-red {
+  display: flex;
+  align-items: center;
+}
+
+.circle-yellow {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  
+  background-color: var(--color-menor-risco);
+}
+
+.circle-red {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  
+  background-color: var(--color-maior-risco);
+}
+
+.legenda-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.risco-legenda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+}
+
+.informacao-legenda {
+  color: var(--color-primary);
+  text-align: center;
+  padding-top: 20px;
+
+}
