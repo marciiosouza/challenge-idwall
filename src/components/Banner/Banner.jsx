@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-import Legenda from "../Legenda/Legenda"
-import "./Banner.css"
-=======
+
+import Legenda from "../Legenda/Legenda";
+import "./Banner.css";
 import React, { useEffect, useState } from 'react';
-import './Banner.css';
 
 const Banner = () => {
   const [erro, setErro] = useState(null);
@@ -27,22 +25,21 @@ const Banner = () => {
           console.log(data);
         }
       } catch (error) {
-        console.error("Erro ao fazer login:", error)
-        setErro("Tente novamente mais tarde.")
+        console.error("Erro ao fazer login:", error);
+        setErro("Tente novamente mais tarde.");
       }
     };
 
     fetchUsuario(); // Chama a função que realiza a autenticação quando o componente é montado.
   }, []); // O segundo argumento é uma matriz de dependências vazia, indicando que este efeito é executado uma vez.
->>>>>>> 39832b3a0b2577676f68585f90759976c65a7083
 
   return (
-<<<<<<< HEAD
     <>
       <section id="banner-suspeitos">
         <div className="container">
           <div className="grid">
             <h2 className="tittle-suspeito">Lista de Suspeitos</h2>
+            {erro && <p>{erro}</p>}
           </div>
         </div>
       </section>
@@ -51,18 +48,8 @@ const Banner = () => {
         <Legenda />
       </main>
     </>
-  )
-=======
-    <section id="banner-suspeitos">
-      <div className="container">
-        <div className="grid">
-          <h2 className="tittle-suspeito">Lista de Suspeitos</h2>
-          {erro && <p>{erro}</p>}
-        </div>
-      </div>
-    </section>
   );
->>>>>>> 39832b3a0b2577676f68585f90759976c65a7083
 }
 
 export default Banner;
+
