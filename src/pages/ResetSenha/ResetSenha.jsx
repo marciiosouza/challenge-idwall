@@ -1,9 +1,9 @@
-import "../../assets/css/style.css"
-import FloatingLabel from "react-bootstrap/FloatingLabel"
-import Form from "react-bootstrap/Form"
-import Logo from "../../assets/images/logo-idwall.svg"
-import Button from "react-bootstrap/Button"
-import { Link } from "react-router-dom"
+import "../../assets/css/style.css";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Form from "react-bootstrap/Form";
+import Logo from "../../assets/images/logo-idwall.svg";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 export const ResetSenha = () => {

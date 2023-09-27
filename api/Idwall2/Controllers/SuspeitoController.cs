@@ -70,7 +70,8 @@ namespace IdWall.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest(new {message = $"Não foi possível cadastrar orepresentante"});
+                //return BadRequest(new {message = $"Não foi possível cadastrar orepresentante"});
+                return BadRequest(ex);
             }
         }
 

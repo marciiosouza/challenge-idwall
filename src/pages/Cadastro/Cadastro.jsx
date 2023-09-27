@@ -3,10 +3,54 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Logo from "../../assets/images/logo-idwall.svg";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useState } from "react";
+
+
+
+
+
+
 
 export const Cadastro = () => {
+  const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [senha, setSenha] = useState("")
+  const [confirmarSenha, confirmarSetSenha] = useState("")
+  
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value)
+  }
+  const handleSenhaChange = (event) => {
+    setSenha(event.target.value)
+  }
+  const handleConfirmarSenhaChange = (event) => {
+    confirmarSetSenha(event.target.value)
+  }
+  const handleCadastro = async () => {
+    
+    try {
+      // Faça sua lógica de autenticação aqui
+      // Por exemplo, fazer uma solicitação de API para autenticar o usuário
+      const response = await fetch('https://localhost:7213/usuario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, senha }),
+      });
+      if (response.ok) {
+        navigate("/login") // Redirecione para a página de sucesso
+      } else {
+        setErro("Credenciais inválidas. Tente novamente.")
+      }
+    } catch (error) {
+      console.error("Erro ao fazer login:", error)
+      setErro("Tente novamente mais tarde.")
+    }
+  }
+  
   return (
     <>
      <Helmet>
@@ -33,6 +77,8 @@ export const Cadastro = () => {
               controlId="floatingInput"
               label="E-mail"
               className="mb-3"
+              onChange={handleEmailChange}
+              value = {email}
             >
               <Form.Control type="name" placeholder="name@example.com" />
             </FloatingLabel>
@@ -40,6 +86,8 @@ export const Cadastro = () => {
               className="mb-3"
               controlId="floatingPassword"
               label="Senha"
+              onChange={handleSenhaChange}
+              value = {senha}
             >
               <Form.Control type="password" placeholder="Senha" />
             </FloatingLabel>
@@ -47,10 +95,12 @@ export const Cadastro = () => {
               className="mb-4"
               controlId="floatingPassword"
               label="Confirmar senha"
+              onChange={handleConfirmarSenhaChange}
+              value = {confirmarSenha}
             >
               <Form.Control type="password" placeholder="Senha" />
             </FloatingLabel>
-            <Button className="login">Criar conta</Button>
+            <Button className="login" onClick={handleCadastro} >Criar conta</Button>
             <div className="pt-2">
               <div className="row">
                 <p>

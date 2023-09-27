@@ -14,13 +14,21 @@ namespace IdWall.Model
 
         [Column("NOME")]
         public string Nome { get; set; }
+
         [Column("CLASSIFICACAO")]
+        [MinLength(10)]
         public char Classificacao { get; set; }
+
         [Column("SEXO")]
+        [MinLength(10)]
         public char Sexo { get; set; }
+
         [Column("ENDERECO")]
+        [MinLength(10)]
         public string Endereco { get; set; }
+
         [Column("NACIONALIDADE")]
+        [MaxLength(2)]
         public string Nacionalidade { get; set; }
 
         public SuspeitoModel()
