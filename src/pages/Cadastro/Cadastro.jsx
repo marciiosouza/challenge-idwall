@@ -7,12 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useState } from "react";
 
-
-
-
-
-
-
 export const Cadastro = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState("")
@@ -66,13 +60,6 @@ export const Cadastro = () => {
             <h6 className="pb-4 gray">
               Insira os dados para criar a sua conta.
             </h6>
-            <FloatingLabel
-              controlId="floatingInput"
-              label="Usuário"
-              className="mb-3"
-            >
-              <Form.Control type="name" placeholder="name" />
-            </FloatingLabel>
             <FloatingLabel
               controlId="floatingInput"
               label="E-mail"

@@ -1,6 +1,8 @@
 
-import Legenda from "../Legenda/Legenda";
-import "./Banner.css";
+import Legenda from "../Legenda/Legenda"
+import "./Banner.css"
+
+
 import React, { useEffect, useState } from 'react';
 
 const Banner = () => {
@@ -36,13 +38,16 @@ const Banner = () => {
   return (
     <>
       <section id="banner-suspeitos">
+        <div>
         <div className="container">
           <div className="grid">
             <h2 className="tittle-suspeito">Lista de Suspeitos</h2>
             {erro && <p>{erro}</p>}
           </div>
         </div>
+      </div>
       </section>
+    
 
       <main>
         <Legenda />
