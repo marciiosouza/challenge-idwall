@@ -5,6 +5,7 @@ import { PageLayout } from "../pages/PageLayout";
 import Cadastro from "../pages/Cadastro/Cadastro";
 import FormSenha, { ResetSenha } from "../pages/ResetSenha/ResetSenha";
 import Banner from "../components/Banner/Banner";
+import { Suspeito } from "../pages/Admin/Suspeitos";
 
 
 
@@ -23,6 +24,7 @@ export function Routers() {
           <Route path='/cadastro' element={<Cadastro />} />
           <Route path='/recuperar-senha' element={<ResetSenha />} />
           <Route path='/suspeitos' element={<Banner />} />
+          <Route path='/cadastro-suspeito' element={<Suspeito />} />
       </Routes>
     </BrowserRouter>
   )

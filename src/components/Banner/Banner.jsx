@@ -47,8 +47,6 @@ const Banner = () => {
         </div>
       </div>
       </section>
-    
-
       <main>
         <Legenda />
       </main>
