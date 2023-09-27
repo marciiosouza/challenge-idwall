@@ -25,9 +25,16 @@ const Login = () => {
     try {
       // Faça sua lógica de autenticação aqui
       // Por exemplo, fazer uma solicitação de API para autenticar o usuário
+      const response = await fetch('https://localhost:7213/encontrarUsuario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, senha }),
+      });
 
-      if (authSuccessful) {
-        navigate("/pagina-de-sucesso") // Redirecione para a página de sucesso
+      if (response.ok) {
+        navigate("/suspeitos") // Redirecione para a página de sucesso
       } else {
         setErro("Credenciais inválidas. Tente novamente.")
       }

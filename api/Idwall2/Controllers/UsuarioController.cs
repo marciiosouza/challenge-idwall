@@ -59,10 +59,11 @@ namespace IdWall.Controllers
         [HttpPost("/encontrarUsuario")]
         public ActionResult<UsuarioModel> EncontrarUsuario([FromBody] UsuarioModel usuariomodel)
         {
-            
 
+            Console.WriteLine(usuariomodel.Email);
+            Console.WriteLine(usuariomodel.Senha);
             var usuarioEncontrado = usuarioRepository.ExisteUsuario(usuariomodel.Email, usuariomodel.Senha);
-
+            Console.WriteLine(usuarioEncontrado);
             if (usuarioEncontrado != null)
             {
                 return Ok(usuarioEncontrado); // Retorna o usuário encontrado
