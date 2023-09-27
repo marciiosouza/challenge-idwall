@@ -1,9 +1,11 @@
+import Cadastro from "../CadastroSuspeito/CadastroSuspeito"
 import "./Legenda.css"
 
 export const Legenda = () => {
   return (
     <>
-    <section>
+    <Cadastro />
+    <section id="griid">
       <div className="container">
         <div className="legenda-container">
           <div className="risco-legenda">
@@ -17,6 +19,7 @@ export const Legenda = () => {
         </div>
         <p className="informacao-legenda">As cores acima informa a classificação de risco de cada suspeito.</p>
       </div>
+      
     </section>
 
 

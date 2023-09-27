@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 import Legenda from "../Legenda/Legenda"
 import "./Banner.css"
-=======
+
 import React, { useEffect, useState } from 'react';
 import './Banner.css';
 
@@ -34,35 +34,27 @@ const Banner = () => {
 
     fetchUsuario(); // Chama a função que realiza a autenticação quando o componente é montado.
   }, []); // O segundo argumento é uma matriz de dependências vazia, indicando que este efeito é executado uma vez.
->>>>>>> 39832b3a0b2577676f68585f90759976c65a7083
+
 
   return (
-<<<<<<< HEAD
+
     <>
-      <section id="banner-suspeitos">
-        <div className="container">
-          <div className="grid">
-            <h2 className="tittle-suspeito">Lista de Suspeitos</h2>
-          </div>
+    <section id="banner-suspeitos">
+      <div className="container">
+        <div className="grid">
+          <h2 className="tittle-suspeito">Cadastrar Suspeitos</h2>
+          {/* {erro && <p>{erro}</p>} */}
         </div>
-      </section>
+      </div>
+    </section>
+      
 
       <main>
         <Legenda />
       </main>
     </>
   )
-=======
-    <section id="banner-suspeitos">
-      <div className="container">
-        <div className="grid">
-          <h2 className="tittle-suspeito">Lista de Suspeitos</h2>
-          {erro && <p>{erro}</p>}
-        </div>
-      </div>
-    </section>
-  );
->>>>>>> 39832b3a0b2577676f68585f90759976c65a7083
+
 }
 
 export default Banner;

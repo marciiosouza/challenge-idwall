@@ -1,0 +1,33 @@
+/* Login */
+#bg-login {
+  background-color: var(--color-descricao);
+}
+
+#grid-suspeito {
+  width: 100%;
+  /* min-height: 100vh; */
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+.box-suspeito {
+  width: 100%;
+  max-width: 516px;
+  
+}
+
+.btn-suspeito {
+  background-color: var(--color-primary);
+  width: 100%;
+  border: none;
+ 
+}
+
+.btn-suspeito:hover {
+  background-color: var(--color-primary);
+}
