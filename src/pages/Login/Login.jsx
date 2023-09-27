@@ -5,13 +5,14 @@ import Form from "react-bootstrap/Form"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Button from "react-bootstrap/Button"
 import Logo from "../../assets/images/logo-idwall.svg"
+import Alert from "react-bootstrap/Alert" // Importe o componente de alerta do Bootstrap
 
 const Login = () => {
   const navigate = useNavigate()
 
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
-  const [erro, setErro] = useState("")
+  const [erro, setErro] = useState(null) // Use null para inicializar o erro como nulo
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
@@ -25,13 +26,13 @@ const Login = () => {
     try {
       // Faça sua lógica de autenticação aqui
       // Por exemplo, fazer uma solicitação de API para autenticar o usuário
-      const response = await fetch('https://localhost:7213/encontrarUsuario', {
-        method: 'POST',
+      const response = await fetch("https://localhost:7213/encontrarUsuario", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, senha }),
-      });
+      })
 
       if (response.ok) {
         navigate("/suspeitos") // Redirecione para a página de sucesso
@@ -40,7 +41,7 @@ const Login = () => {
       }
     } catch (error) {
       console.error("Erro ao fazer login:", error)
-      setErro("Tente novamente mais tarde.")
+      setErro("Erro Inesperado")
     }
   }
 
@@ -87,7 +88,12 @@ const Login = () => {
               <Button className="login" onClick={handleLogin}>
                 Entrar
               </Button>
-              {erro && <p className="text-danger">{erro}</p>}
+              {/* Alerta Bootstrap para exibir mensagens de erro */}
+              {erro && (
+                <Alert variant="danger" className="mt-3">
+                  {erro}
+                </Alert>
+              )}
               <div className="pt-5">
                 <Link className="senha" to="/recuperar-senha">
                   Esqueceu sua senha?
