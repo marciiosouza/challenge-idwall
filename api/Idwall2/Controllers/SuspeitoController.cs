@@ -95,7 +95,7 @@ namespace IdWall.Controllers
                     return NotFound("Não encontrado!");
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return BadRequest();
             }

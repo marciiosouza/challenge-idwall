@@ -5,8 +5,10 @@ import Button from "react-bootstrap/Button"
 import { Helmet } from "react-helmet"
 import { useState } from "react"
 import { Container, Row, Col } from "react-bootstrap"
+import { Link, useNavigate } from "react-router-dom"
 
 export const Cadastro = () => {
+  const navigate = useNavigate()
  
   //Constates para cadastrar suspeito
   const [nomeSuspeito, setNomeSuspeitopain] = useState("")
@@ -51,7 +53,8 @@ export const Cadastro = () => {
             "nacionalidade" :naciolidadeSuspeito}),
       })
       if (response.ok) {
-        console.log('feito') // Redirecione para a página de sucesso
+        navigate("/sus") // Redirecione para a página de sucesso
+
       } else {
         setErro("Credenciais inválidas. Tente novamente.")
       }
