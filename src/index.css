@@ -11,10 +11,13 @@
   --color-text: #23292e;
   --color-description: #666666;
 
-
+  /* Color Legendas */
   --color-menor-risco: #FFC700;
   --color-maior-risco: #FF0000;
 
+  
+  --color-bg-yellow: rgba(255, 199, 0, 0.10);;
+  --color-bg-red: rgba(255, 0, 0, 0.10);
 }
 
 * {

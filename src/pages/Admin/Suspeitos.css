@@ -1,0 +1,15 @@
+/* .container-grid {
+  display: flex;
+  flex-wrap: wrap;
+ 
+}
+
+.item {
+  flex-grow: 1;
+  flex-basis: 200;
+} */
+
+#bg__risco {
+ background-color: var(--color-risco-red) !important;
+}
+
