@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I7IC8OE+VCpx6a6IGuf7TUlfkZw3OLQ5fZIDHafyXV/R0rmxHpWueZ9SYewstOUbJ7EdVUlc+25ERrw+FpAvlg==",
+  "dgSpecHash": "htJbIeT0e2hi/7Iv6vuFZYp4SI+Icx7Neeqk+pyubnceQIkilNQx0UgtvRAvXYZU5ZMIAiLYX29Ghbje+zFeaA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marcio\\Documents\\Projetos\\Challenge_Idwall\\api\\Idwall2\\Idwall.csproj",
+  "projectFilePath": "C:\\Users\\Marcio\\Documents\\Projetos\\idwall\\api\\Idwall2\\Idwall.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marcio\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Marcio\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",

@@ -17,8 +17,11 @@ export const TelaAdmin = () => {
       <BannerAdm />
       <CadastroSuspeito />
       <ListaSuspeitos />
-      <LegendaAdm />
-      {/* <Footer /> */}
+      <LegendaAdm/>
+
+
+      
+      <Footer />
     </>
   )
 }
