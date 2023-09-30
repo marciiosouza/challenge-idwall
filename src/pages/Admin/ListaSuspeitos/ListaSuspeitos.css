@@ -9,5 +9,5 @@
 }
 
 .custom-table {
-  background-color: var(--color-bg-yellow) !important;
+  background-color: var(--bs-table-bg) !important;
 }

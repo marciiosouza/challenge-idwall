@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react"
 import Table from "react-bootstrap/Table"
-import "./ListaSuspeitos.css"
 import Button from "react-bootstrap/Button"
 
 export const ListaSuspeitos = () => {
   const [erro, setErro] = useState(null)
   const [suspeitos, setSuspeitos] = useState([])
 
-  // Função para excluir um suspeito pelo ID
   const handleDeleteSuspeito = async (id, index) => {
     try {
       const response = await fetch(`https://localhost:7213/Suspeito/${id}`, {
@@ -56,52 +54,51 @@ export const ListaSuspeitos = () => {
     }
 
     fetchSuspeitos()
-  }, []) // O segundo argumento é uma matriz de dependências vazia, indicando que este efeito é executado uma vez.
+  }, [])
 
   return (
-    <>
-      <section className="text-center">
-        <div className="container">
-          <div className="tabela-suspeitos">
-            <Table responsive="sm" striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Data de Nascimento</th>
-                  <th>Sexo</th>
-                  <th>Nacionalidade</th>
-                  <th>Classificação</th>
-                  <th>Departamento</th>
-                </tr>
-              </thead>
+    <section className="text-center">
+      <div className="container">
+        <div className="tabela-suspeitos">
+          <Table responsive="sm" striped hover>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Sexo</th>
+                <th>Nacionalidade</th>
+                <th>Classificação</th>
+                <th>Departamento</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
 
-              <tbody>
-                {suspeitos.map((suspeito, index) => (
-                  <tr key={index} className="custom-table">
-                    <td>{suspeito.nome}</td>
-                    <td>{suspeito.dataNascimento}</td>
-                    <td>{suspeito.sexo}</td>
-                    <td>{suspeito.nacionalidade}</td>
-                    <td>{suspeito.classificacao}</td>
-                    <td>{suspeito.departamento}</td>
-                    <td>
-                      <Button
-                        className="login"
-                        onClick={() =>
-                          handleDeleteSuspeito(suspeito.SuspeitoId, index)
-                        }
-                      >
-                        Delete
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
+            <tbody>
+              {suspeitos.map((suspeito, index) => (
+                <tr key={index} className="custom-table">
+                  <td>{suspeito.nome}</td>
+                  <td>{suspeito.dataNascimento}</td>
+                  <td>{suspeito.sexo}</td>
+                  <td>{suspeito.nacionalidade}</td>
+                  <td>{suspeito.classificacao}</td>
+                  <td>{suspeito.departamento}</td>
+                  <td>
+                    <Button
+                      className="login"
+                      onClick={() =>
+                        handleDeleteSuspeito(suspeito.SuspeitoId, index)
+                      }
+                    >
+                      Excluir
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
 

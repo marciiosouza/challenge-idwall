@@ -1,7 +1,8 @@
 #banner-adm{
   width: 100%;
-  height: 166px;
-  background-color: var(--color-primary);
+  height: 250px;
+  background-image: url(/src/assets/images/bg-blue.svg);
+  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,4 +12,11 @@
 
 .tittle-suspeito {
   color: white;
+}
+
+.grid-menu-adm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }

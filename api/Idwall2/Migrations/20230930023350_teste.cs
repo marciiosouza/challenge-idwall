@@ -5,7 +5,7 @@
 namespace Idwall.Migrations
 {
     /// <inheritdoc />
-    public partial class final : Migration
+    public partial class teste : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,7 +19,6 @@ namespace Idwall.Migrations
                     NOME = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     CLASSIFICACAO = table.Column<string>(type: "NVARCHAR2(1)", nullable: false),
                     SEXO = table.Column<string>(type: "NVARCHAR2(1)", nullable: false),
-                    ENDERECO = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     NACIONALIDADE = table.Column<string>(type: "NVARCHAR2(2)", maxLength: 2, nullable: false)
                 },
                 constraints: table =>

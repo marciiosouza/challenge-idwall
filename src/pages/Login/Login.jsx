@@ -35,7 +35,7 @@ const Login = () => {
       })
 
       if (response.ok) {
-        navigate("/suspeitos") // Redirecione para a página de sucesso
+        navigate("/admin") // Redirecione para a página de sucesso
       } else {
         setErro("Credenciais inválidas. Tente novamente.")
       }
@@ -101,7 +101,7 @@ const Login = () => {
                 <div className="row">
                   <p>
                     Não tem conta? &nbsp;
-                    <Link className="senha" to="/cadastro">
+                    <Link className="senha" to="/cadastro-usuario">
                       Cadastre-se
                     </Link>
                   </p>

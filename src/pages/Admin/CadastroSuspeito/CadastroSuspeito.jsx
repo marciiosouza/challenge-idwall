@@ -1,41 +1,25 @@
-import "./CadastroSuspeito.css"
+import React, { useState } from "react"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
-import { useState } from "react"
-import { Container, Row, Col } from "react-bootstrap"
-import { Link, useNavigate } from "react-router-dom"
+import Modal from "react-bootstrap/Modal"
+import { useNavigate } from "react-router-dom"
 
 export const Cadastro = () => {
   const navigate = useNavigate()
 
-  //Constates para cadastrar suspeito
-  const [nomeSuspeito, setNomeSuspeitopain] = useState("")
+  const [nomeSuspeito, setNomeSuspeito] = useState("")
   const [dataNascimentoSuspeito, setDataNascimentoSuspeito] = useState("")
   const [sexoSuspeito, setSexoSuspeito] = useState("")
   const [classificacao, setClassificacao] = useState("")
-  const [naciolidadeSuspeito, setNacionalidadeSuspeito] = useState("")
+  const [nacionalidadeSuspeito, setNacionalidadeSuspeito] = useState("")
+  const [show, setShow] = useState(false)
 
-  function changeNomeSuspeito(event) {
-    setNomeSuspeitopain(event.target.value)
-  }
-  function changedataNascimentoSuspeito(event) {
-    setDataNascimentoSuspeito(event.target.value)
-  }
-  function changeSexoSuspeito(event) {
-    setSexoSuspeito(event.target.value)
-  }
-  function changeClassificacao(event) {
-    setClassificacao(event.target.value)
-  }
-  const changeNacionalidadeSuspeito = (event) => {
-    setNacionalidadeSuspeito(event.target.value)
-  }
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   const handleCadastro = async () => {
     try {
-      // Faça sua lógica de autenticação aqui
-      // Por exemplo, fazer uma solicitação de API para autenticar o usuário
       const response = await fetch("https://localhost:7213/Suspeito", {
         method: "POST",
         headers: {
@@ -45,143 +29,113 @@ export const Cadastro = () => {
           nome: nomeSuspeito,
           classificacao: classificacao,
           sexo: sexoSuspeito,
-          nacionalidade: naciolidadeSuspeito,
+          nacionalidade: nacionalidadeSuspeito,
         }),
       })
       if (response.ok) {
-        navigate("/sus") // Redirecione para a página de sucesso
+        setNomeSuspeito("")
+        setDataNascimentoSuspeito("")
+        setSexoSuspeito("")
+        setClassificacao("")
+        setNacionalidadeSuspeito("")
+        setShow(false) // Feche o modal
+        navigate("/admin") // Redirecione para a página de sucesso
       } else {
-        setErro("Credenciais inválidas. Tente novamente.")
+        console.error("Erro ao cadastrar o suspeito.")
       }
     } catch (error) {
-      console.error("Erro ao fazer login:", error)
-      setErro("Tente novamente mais tarde.")
+      console.error("Erro ao fazer a requisição à API:", error)
     }
   }
 
   return (
     <>
-      <section id="bg-login">
-        <div className="container">
-          <div id="grid-suspeito">
-            <div className="box-suspeito">
-              <Container>
-                <Row>
-                  <Col md={4}>
-                    <FloatingLabel
-                      controlId="floatingInput"
-                      label="Nome"
-                      className="mb-3"
-                    >
-                      <Form.Control
-                        type="name"
-                        placeholder="Nome"
-                        value={nomeSuspeito}
-                        onChange={changeNomeSuspeito}
-                      />
-                    </FloatingLabel>
-                  </Col>
+      <Button variant="primary" onClick={handleShow}>
+        Cadastrar Suspeitos
+      </Button>
 
-                  <Col md={4}>
-                    <FloatingLabel
-                      controlId="formDate"
-                      label="Data"
-                      className="mb-3"
-                    >
-                      <Form.Control
-                        type="date"
-                        placeholder="Data"
-                        value={dataNascimentoSuspeito}
-                        onChange={changedataNascimentoSuspeito}
-                      />
-                    </FloatingLabel>
-                  </Col>
-                  <Col md={4}>
-                    <FloatingLabel
-                      controlId="floatingSelect"
-                      label="Sexo"
-                      className="mb-3"
-                    >
-                      <Form.Select
-                        value={sexoSuspeito}
-                        onChange={changeSexoSuspeito}
-                        aria-label="Floating label select example"
-                      >
-                        <option></option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Feminino</option>
-                      </Form.Select>
-                    </FloatingLabel>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col md={4}>
-                    <FloatingLabel
-                      className="mb-3"
-                      controlId="floatingInput"
-                      label="Nacionalidade"
-                      onChange={changeNacionalidadeSuspeito}
-                      value={naciolidadeSuspeito}
-                    >
-                      <Form.Control placeholder="name" />
-                    </FloatingLabel>
-                  </Col>
-
-                  <Col md={4}>
-                    <FloatingLabel
-                      controlId="floatingSelect"
-                      label="Classificação"
-                      className="mb-3"
-                    >
-                      <Form.Select
-                        value={classificacao}
-                        onChange={changeClassificacao}
-                        aria-label="Floating label select example"
-                      >
-                        <option></option>
-                        <option value="A" className="">
-                          Amarelo
-                        </option>
-                        <option value="B" className="">
-                          Vermelho
-                        </option>
-                      </Form.Select>
-                    </FloatingLabel>
-                  </Col>
-
-                  <Col md={4}>
-                    <FloatingLabel
-                      controlId="floatingSelect"
-                      label="Departamento"
-                      className="mb-3"
-                    >
-                      <Form.Select
-                        aria-label="Floating label select example"
-                        required
-                      >
-                        <option></option>
-                        <option value="1">FBI</option>
-                        <option value="2">Interpol</option>
-                      </Form.Select>
-                    </FloatingLabel>
-                  </Col>
-                </Row>
-
-                <Row>
-                  <div className="button-grid">
-                    <Button className="btn-suspeito" onClick={handleCadastro}>
-                      Cadastrar
-                    </Button>
-                    <Button className="btn-suspeito" onClick={handleCadastro}>
-                      Limpar
-                    </Button>
-                  </div>
-                </Row>
-              </Container>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Cadastrar Suspeito</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <div className="mb-3">
+              <FloatingLabel controlId="floatingInput" label="Nome">
+                <Form.Control
+                  type="name"
+                  placeholder="Nome"
+                  value={nomeSuspeito}
+                  onChange={(e) => setNomeSuspeito(e.target.value)}
+                />
+              </FloatingLabel>
             </div>
-          </div>
-        </div>
-      </section>
+            <div className="mb-3">
+              <FloatingLabel controlId="formDate" label="Data">
+                <Form.Control
+                  type="date"
+                  placeholder="Data"
+                  value={dataNascimentoSuspeito}
+                  onChange={(e) => setDataNascimentoSuspeito(e.target.value)}
+                />
+              </FloatingLabel>
+            </div>
+            <div className="mb-3">
+              <FloatingLabel controlId="floatingSelect" label="Sexo">
+                <Form.Select
+                  value={sexoSuspeito}
+                  onChange={(e) => setSexoSuspeito(e.target.value)}
+                  aria-label="Sexo"
+                >
+                  <option></option>
+                  <option value="M">Masculino</option>
+                  <option value="F">Feminino</option>
+                </Form.Select>
+              </FloatingLabel>
+            </div>
+            <div className="mb-3">
+              <FloatingLabel controlId="floatingInput" label="Nacionalidade">
+                <Form.Control
+                  type="text"
+                  placeholder="Nacionalidade"
+                  value={nacionalidadeSuspeito}
+                  onChange={(e) => setNacionalidadeSuspeito(e.target.value)}
+                />
+              </FloatingLabel>
+            </div>
+            <div className="mb-3">
+              <FloatingLabel controlId="floatingSelect" label="Classificação">
+                <Form.Select
+                  value={classificacao}
+                  onChange={(e) => setClassificacao(e.target.value)}
+                  aria-label="Classificação"
+                >
+                  <option></option>
+                  <option value="A">Amarelo</option>
+                  <option value="B">Vermelho</option>
+                </Form.Select>
+              </FloatingLabel>
+            </div>
+            <div className="mb-3">
+              <FloatingLabel controlId="floatingSelect" label="Departamento">
+                <Form.Select aria-label="Departamento" required>
+                  <option></option>
+                  <option value="1">FBI</option>
+                  <option value="2">Interpol</option>
+                </Form.Select>
+              </FloatingLabel>
+            </div>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleClose}>
+            Fechar
+          </Button>
+          <Button variant="primary"  onClick={handleCadastro}>
+            Cadastrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }

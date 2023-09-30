@@ -1,0 +1,9 @@
+.btn-admin {
+  width: 110px;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.custom-menu-adm {
+  font-weight: 500;
+}

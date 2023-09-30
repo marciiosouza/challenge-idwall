@@ -11,8 +11,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace Idwall.Migrations
 {
     [DbContext(typeof(AppDbContext.DataBaseContext))]
-    [Migration("20230927231254_deletando cokuna endereço")]
-    partial class deletandocokunaendereço
+    [Migration("20230930023350_teste")]
+    partial class teste
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
