@@ -1,24 +1,19 @@
 /* Home */
 #banner {
   width: 100%;
-  height: 568px;
+  min-height: 583px;
   background-color: var(--color-primary);
   display: flex;
   align-items: center;
-  justify-content: center;
-  /* background-image: url(../images/banner-01.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed; */
+
+  flex-direction: column;
+    /* Coloca os elementos em coluna em telas menores */
+    justify-content: center;
+    /* Centraliza verticalmente os elementos */
+    align-items: center;
   
 }
 
-.text-banner {
-  color: white;
-  text-align: center;
-  font-size: 1.2rem;
-  max-width: 100%;
-}
 .tittle-home {
   font-weight: 700;
   font-size: 2em;
@@ -26,27 +21,100 @@
   max-width: 100%;
 }
 
-.tittle-banner {
-  font-family: var(--font-primary);
-  font-size: 3em;
+.tittle-home {
+  color: var(--color-font);
+  font-size: 2.5em;
   font-weight: 700;
-  padding-bottom: 35px;
 }
 
+.descricao-home {
+  color: var(--color-font);
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
 
-.btn-banner {
-  font-weight: 500;
+.button-home {
+  font-weight: 700;
   color: var(--color-primary);
-  background-color: white;
+  background-color: var(--color-font);
   border: 1px solid;
   padding: 15px;
 }
 
-.btn-banner:hover {
+.button-home:hover {
   color: white;
   border: 1px solid var(--color-gray);
 
 }
+
+#notbook-banner {
+  width: 25rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.destaque-home {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.paragraph-home {
+  color: var(--color-description);
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 5%;
+}
+
+.button-repository {
+  color: var(--color-primary);
+  background: transparent;
+  outline: none;
+  transition: all 0.5s;
+  border: 1px solid var(--color-primary);
+  border-radius: 5px;
+  text-decoration: none;
+
+  font-weight: 700;
+  padding: 8px;
+  width: 255px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button-repository:hover {
+  background: var(--color-primary);
+  color: var(--color-font);
+  border: none;
+}
+
+#icons {
+  width: 25px;
+  height: 25px;
+}
+
+
+@media (max-width: 768px) {
+  #banner {
+    min-height: 400px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* Login */
 #bg-login {
@@ -74,7 +142,7 @@
 }
 
 .logo-login {
-padding-bottom: 46px;
+  padding-bottom: 46px;
 }
 
 .gray {
@@ -86,7 +154,7 @@ padding-bottom: 46px;
   background-color: var(--color-primary);
   width: 100%;
   border: none;
- 
+
 }
 
 .login:hover {

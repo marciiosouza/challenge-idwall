@@ -37,7 +37,7 @@ export const ResetSenha = () => {
             <div className="row">
               <p>
                   Não tem conta? &nbsp;
-                <Link className="senha" to="/cadastro-usuario">
+                <Link className="senha" to="/cadastro">
                   Cadastre-se
                 </Link>
               </p>

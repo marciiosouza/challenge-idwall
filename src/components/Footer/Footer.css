@@ -4,28 +4,16 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+ 
 }
 
 .rodape {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
-.links-rodape {
-  display: flex;
-  align-items: center;
   justify-content: center;
+  gap: 80px;
+  font-weight: 700;
 }
 
-.link-repo {
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--color-primary);
-}
-
-.link-repo:hover {
+.name-rodape {
   color: var(--color-primary);
 }

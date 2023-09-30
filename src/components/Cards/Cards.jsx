@@ -10,65 +10,85 @@ export const Cards = () => {
   return (
     <section id="cards">
       <div className="container">
-        <div className="row alinhamento">
-          <div className="col-lg-2 col-md-12">
-            <div className="inner-card">
-              <Card>
-                <Card.Img variant="top" src={iconSuspeito} className="icon-card" />
-                <Card.Body>
-                  <Card.Title>Listar Suspeitos</Card.Title>
+        <div className="row">
+
+          <div className="text-center shadow-card col-md-6 col-12 col-xl-3">
+            <Card className="m-3">
+              <div className="grid-icons">
+                <Card.Img src={iconSuspeito} className="icon-card" />
+                <Card.Title><span className="fw-bold">Lista Suspeitos</span></Card.Title>
+              </div>
+              <Card.Body>
+                <div className="text-card m-2 ">
                   <Card.Text>
-                    É possível exibir uma lista contendo todos os suspeitos procurados através da nossa API.
+                    É possível exibir uma lista contendo todos os suspeitos através da nossa API.
                   </Card.Text>
-                  <Button variant="" className="btn-card"><ion-icon name="arrow-forward-outline"></ion-icon>Saiba mais</Button>
-                </Card.Body>
-              </Card>
-            </div>
+                </div>
+                <div className="p-3">
+                  <Button variant="primary" className="custom-btn-cards">Saiba mais</Button>
+                </div>
+              </Card.Body>
+            </Card>
           </div>
-          <div className="col-lg-3 col-md-12">
-            <div className="inner-card">
-              <Card>
-                <Card.Img variant="top" src={iconPessoa} className="icon-card" />
-                <Card.Body>
-                  <Card.Title>Busca por Nomes</Card.Title>
+          <div className="text-center shadow-card col-md-6 col-12 col-xl-3">
+            <Card className="m-3">
+              <div className="grid-icons">
+                <Card.Img src={iconPessoa} className="icon-card" />
+                <Card.Title><span className="fw-bold">Busca por nomes</span></Card.Title>
+              </div>
+              <Card.Body>
+                <div className="text-card m-2 ">
                   <Card.Text>
-                    Utilize a função de busca para encontrar informações sobre os suspeitos por meio de seus nomes.
+                    Utilize a função de busca para encontrar informações sobre os suspeitos.
                   </Card.Text>
-                  <Button variant="" className="btn-card"><ion-icon name="arrow-forward-outline"></ion-icon>Saiba mais</Button>
-                </Card.Body>
-              </Card>
-            </div>
+                </div>
+                <div className="p-3">
+                  <Button variant="primary" className="custom-btn-cards">Saiba mais</Button>
+                </div>
+              </Card.Body>
+            </Card>
           </div>
-          <div className="col-lg-3 col-md-12">
-            <div className="inner-card">
-              <Card>
-                <Card.Img variant="top" src={iconClassificacao} className="icon-card" />
-                <Card.Body>
-                  <Card.Title>Classificação</Card.Title>
+          <div className="text-center shadow-card col-md-6 col-12 col-xl-3">
+            <Card className="m-3">
+              <div className="grid-icons">
+                <Card.Img src={iconClassificacao} className="icon-card" />
+                <Card.Title><span className="fw-bold">Classificação</span></Card.Title>
+              </div>
+              <Card.Body>
+                <div className="text-card m-2 ">
                   <Card.Text>
-                    Realize a busca dos suspeitos com base no nível de procurado agravado atribuído a cada um deles.
+                    Realize uma busca de cada suspeito com base na classificação re risco.
                   </Card.Text>
-                  <Button variant="" className="btn-card"><ion-icon name="arrow-forward-outline"></ion-icon>Saiba mais</Button>
-                </Card.Body>
-              </Card>
-            </div>
+                </div>
+                <div className="p-3">
+                  <Button variant="primary" className="custom-btn-cards">Saiba mais</Button>
+                </div>
+              </Card.Body>
+            </Card>
           </div>
-          <div className="col-lg-3 col-md-12">
-            <div className="inner-card">
-              <Card>
-                <Card.Img variant="top" src={iconLocal} className="icon-card" />
-                <Card.Body>
-                  <Card.Title>Localidade</Card.Title>
+          <div className="text-center shadow-card col-md-6 col-12 col-xl-3">
+            <Card className="m-3">
+              <div className="grid-icons">
+                <Card.Img src={iconLocal} className="icon-card" />
+                <Card.Title><span className="fw-bold">Localidade</span></Card.Title>
+              </div>
+              <Card.Body>
+                <div className="text-card m-2 ">
                   <Card.Text>
                     Informações de localização externas para enriquecer os resultados das consultas.
                   </Card.Text>
-                  <Button variant="" className="btn-card">
-                    <ion-icon name="arrow-forward-outline">
-                    </ion-icon>Saiba mais</Button>
-                </Card.Body>
-              </Card>
-            </div>
+                </div>
+                <div className="p-3">
+                  <Button variant="primary" className="custom-btn-cards">Saiba mais</Button>
+                </div>
+              </Card.Body>
+            </Card>
           </div>
+
+        
+
+
+
         </div>
       </div>
     </section>

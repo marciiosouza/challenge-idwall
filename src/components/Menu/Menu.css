@@ -38,13 +38,6 @@ img, svg {
   width: 15%;
 }
 
-ion-icon {
-  width: 20px;
-  height: 20px;
-  color: var(--color-primary);
-}
-
-
 .btn-login:hover {
 color: var(--color-primary);
 }

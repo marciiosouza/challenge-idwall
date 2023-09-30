@@ -33,7 +33,7 @@ Para o desenvolvimento deste site utilizamos as seguintes tecnologias:
 
 **Criação do Layout**
 - Para a criação das telas utilizamos o figma;
-- <a href="https://github.com/iuricode">Projeto Figma</a>
+- <a href="https://www.figma.com/proto/QliehCzfTH4bFvBs0xp9wl/Challenger-idwall---FIAP?page-id=0%3A1&type=design&node-id=395-2&t=u4KlNbB2JXsT3uE0-0&scaling=contain">Projeto Figma</a>
   
 **Front-end**
 - React + Vite;

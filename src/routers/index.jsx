@@ -3,7 +3,7 @@ import Home from "../pages/Home/Home"
 import Login from "../pages/Login/Login"
 import { PageLayout } from "../pages/PageLayout"
 import Cadastro from "../pages/Cadastro/Cadastro"
-import FormSenha, { ResetSenha } from "../pages/ResetSenha/ResetSenha"
+import { ResetSenha } from "../pages/ResetSenha/ResetSenha"
 import TelaAdmin from "../pages/Admin/TelaAdmin"
 
 export function Routers() {
@@ -14,7 +14,7 @@ export function Routers() {
           <Route path="/" element={<Home />} />
         </Route>
         <Route path="/login" element={<Login />} />
-        <Route path="/cadastro-usuario" element={<Cadastro />} />
+        <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/recuperar-senha" element={<ResetSenha />} />
         <Route path="/admin" element={<TelaAdmin />} />
       </Routes>
