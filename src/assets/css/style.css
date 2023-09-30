@@ -5,13 +5,11 @@
   background-color: var(--color-primary);
   display: flex;
   align-items: center;
-
   flex-direction: column;
-    /* Coloca os elementos em coluna em telas menores */
-    justify-content: center;
-    /* Centraliza verticalmente os elementos */
-    align-items: center;
+  justify-content: center;
+
   
+
 }
 
 .tittle-home {
