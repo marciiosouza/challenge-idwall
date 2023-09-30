@@ -21,7 +21,7 @@
   width: 20%;
   border: none;
   margin: 0 5px;
- 
+
 }
 
 .button-grid {
@@ -31,4 +31,35 @@
 
 .btn-suspeito:hover {
   background-color: var(--color-primary);
+}
+
+.button-adm {
+  width: 200px;
+  height: 46px;
+  background-color: var(--color-primary);
+  border: none;
+}
+
+.button-adm:hover {
+  background-color: var(--color-primary);
+  border: none;
+}
+
+.button-grid {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.line {
+  width: 1723px;
+  height: 0px;
+  border: 1px solid rgba(216, 216, 216, 0.50) ;
+}
+
+.destaque-adm {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-align: center;
+  padding: 65px 0;
 }

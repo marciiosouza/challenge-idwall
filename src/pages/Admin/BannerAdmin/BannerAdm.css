@@ -1,22 +1,12 @@
 #banner-adm{
   width: 100%;
   height: 250px;
-  background-image: url(/src/assets/images/bg-blue.svg);
-  background-attachment: fixed;
+  background-color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
- 
-  
+  color: var(--color-font);
 }
-
-.tittle-suspeito {
-  color: white;
-}
-
-.grid-menu-adm {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+.custon-banner-adm {
+  max-width: 650px;
 }

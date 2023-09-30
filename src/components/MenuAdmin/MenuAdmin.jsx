@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import Container from "react-bootstrap/Container"
 import Navbar from "react-bootstrap/Navbar"
 import { useNavigate } from "react-router-dom"
@@ -39,7 +39,7 @@ export const MenuAdmin = () => {
   }, []) // O segundo argumento é uma matriz de dependências vazia para que este efeito seja executado uma vez
 
   return (
-    <Navbar className="bg-body-tertiary">
+    <Navbar className="bg-body-tertiary fixed-top">
       <Container>
         <Navbar.Brand href="#home">
           <img src={logoNav} alt="" />{" "}

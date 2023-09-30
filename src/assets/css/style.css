@@ -7,9 +7,6 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-
-  
-
 }
 
 .tittle-home {
@@ -96,6 +93,9 @@
   height: 25px;
 }
 
+.icons-adm {
+  height: 40px;
+}
 
 @media (max-width: 768px) {
   #banner {

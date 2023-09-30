@@ -13,14 +13,14 @@ export const TelaAdmin = () => {
         <title>idwall | Admin</title>
       </Helmet>
 
-      <MenuAdmin/>
+      <MenuAdmin />
       <BannerAdm />
       <CadastroSuspeito />
       <ListaSuspeitos />
-      <LegendaAdm/>
+      <LegendaAdm />
 
 
-      
+
       <Footer />
     </>
   )
