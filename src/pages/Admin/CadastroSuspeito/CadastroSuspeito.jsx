@@ -9,7 +9,7 @@ import "./CadastroSuspeito.css"
 import search from "../../../assets/images/search.svg"
 import iconSuspeito from '../../../assets/images/lista_suspeito.svg';
 
-export const Cadastro = () => {
+export const Cadastro = (props) => {
   const navigate = useNavigate()
 
   const [nomeSuspeito, setNomeSuspeito] = useState("")
@@ -18,6 +18,7 @@ export const Cadastro = () => {
   const [classificacao, setClassificacao] = useState("")
   const [nacionalidadeSuspeito, setNacionalidadeSuspeito] = useState("")
   const [show, setShow] = useState(false)
+  
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
@@ -52,9 +53,36 @@ export const Cadastro = () => {
     }
   }
 
+  const [resultadosPesquisa, setResultadosPesquisa] = useState([]);
+
+  const handlePesquisaNome = async (nome) => {
+    
+    try {
+      const response = await fetch(`https://localhost:7213/Suspeito/nome/${nome}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setResultadosPesquisa(data)  
+        
+        // Faça algo com os dados retornados, como atualizar o estado ou exibir na tela.
+        //console.log(data);
+      } else {
+        console.error("Erro ao fazer a pesquisa por nome.");
+      }
+    } catch (error) {
+      console.error("Erro ao fazer a requisição à API:", error);
+    }
+  };
+  
+
+
   return (
     <>
-
+     
       <div className="container">
         <h2 className="destaque-adm">
           <img className="icons-adm" src={search} alt="Lupa de Pesquisa" />Pesquisar
@@ -112,10 +140,10 @@ export const Cadastro = () => {
         <div className="container">
           <div className="row">
             <div className="button-grid mb-5">
-              <Button className="button-adm" >
+              <Button className="button-adm" onClick={() => handlePesquisaNome(nomeSuspeito)} >
                 Pesquisar
               </Button>
-              <Button className="button-adm-cadastro" onClick={handleShow}>
+              <Button className="button-adm-cadastro" >
                 Cadastrar
               </Button>
             </div>

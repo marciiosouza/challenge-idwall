@@ -29,11 +29,11 @@ namespace IdWall.Repository
         }
 
 
-        public SuspeitoModel ConsultarPorNome(String nome)
+        public List<SuspeitoModel> ConsultarPorNome(string nome)
         {
-            var pessoa = dataBaseContext.suspeito.Where(r => r.title.Contains(nome)).FirstOrDefault<SuspeitoModel>();
+            var pessoas = dataBaseContext.suspeito.Where(r => r.title.Contains(nome)).ToList();
 
-            return pessoa;
+            return pessoas;
         }
 
         public void InserirSuspeito(SuspeitoModel suspeito)

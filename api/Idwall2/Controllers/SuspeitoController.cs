@@ -124,8 +124,8 @@ namespace IdWall.Controllers
         //}
 
 
-        [HttpGet("nome")]
-        public ActionResult<SuspeitoModel> ProcurarNome([FromBody] string nome)
+        [HttpGet("nome/{nome}" )]
+        public ActionResult<List<SuspeitoModel>> ProcurarNome([FromRoute] string nome)
         {
             var Suspeito = suspeitoRepository.ConsultarPorNome(nome);
             return Ok(Suspeito);
