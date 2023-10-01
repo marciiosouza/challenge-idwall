@@ -3,8 +3,8 @@ import "./LegendaAdm.css"
 export const LegendaAdm = () => {
   return (
     <section>
-      <div className="container pb-5">
-        <div className="legenda-container">
+      <div className="container pb-5 pt-5">
+        <div className="legenda-container pt-5">
           <div className="grid-legenda">
             <div className="circle-yellow"></div>
             <p className="text-risco fw-bold">Menor Risco</p>

@@ -38,9 +38,24 @@
   height: 46px;
   background-color: var(--color-primary);
   border: none;
+  font-weight: 700;
 }
 
 .button-adm:hover {
+  background-color: var(--color-primary);
+  border: none;
+}
+
+.button-adm-cadastro {
+  width: 200px;
+  height: 46px;
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.button-adm-cadastro:hover {
   background-color: var(--color-primary);
   border: none;
 }
@@ -54,7 +69,7 @@
 .line {
   width: 1723px;
   height: 0px;
-  border: 1px solid rgba(216, 216, 216, 0.50) ;
+  border: 1px solid rgba(216, 216, 216, 0.50);
 }
 
 .destaque-adm {

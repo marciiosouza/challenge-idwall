@@ -62,7 +62,7 @@ export const Cadastro = () => {
       </div>
       
       <section>
-        <Container>
+        <Container fluid="md">
           <Row>
             <Col xs={6} md={4}>
               <div className="mb-3">
@@ -93,7 +93,7 @@ export const Cadastro = () => {
               </div>
             </Col>
 
-            <Col xs={6} md={4}>
+            <Col  md={4} >
               <div className="mb-3">
                 <FloatingLabel controlId="floatingSelect" label="Departamento">
                   <Form.Select aria-label="Departamento" required>
@@ -115,7 +115,7 @@ export const Cadastro = () => {
               <Button className="button-adm" >
                 Pesquisar
               </Button>
-              <Button className="button-adm" onClick={handleShow}>
+              <Button className="button-adm-cadastro" onClick={handleShow}>
                 Cadastrar
               </Button>
             </div>
@@ -123,6 +123,7 @@ export const Cadastro = () => {
           </div>
         </div>
       </section>
+      
       <div className="container">
         <h2 className="destaque-adm">
           <img className="icons-adm" src={iconSuspeito} alt="Lupa de Pesquisa" />Resultado
