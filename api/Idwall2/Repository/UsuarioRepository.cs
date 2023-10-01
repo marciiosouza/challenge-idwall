@@ -29,7 +29,7 @@ namespace IdWall.Repository
         public UsuarioModel ExisteUsuario(string email, string senha)
         {
             // Consulta o banco de dados para encontrar um usuário com o email especificado
-            var usuarioRetornado = dataBaseContext.usuario.FirstOrDefault(u => u.Email == email );
+            var usuarioRetornado = dataBaseContext.usuario.FirstOrDefault(u => u.Email == email);
 
             if (usuarioRetornado != null)
             {

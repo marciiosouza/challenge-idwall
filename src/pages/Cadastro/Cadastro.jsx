@@ -27,7 +27,7 @@ export const Cadastro = () => {
     try {
       // Faça sua lógica de autenticação aqui
       // Por exemplo, fazer uma solicitação de API para autenticar o usuário
-      const response = await fetch("https://localhost:7213/usuario", {
+      const response = await fetch("https://localhost:7213/Usuario", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

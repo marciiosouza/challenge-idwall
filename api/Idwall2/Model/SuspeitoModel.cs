@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Idwall.Model;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -27,7 +28,14 @@ namespace IdWall.Model
         // // public int reward_min { get; set; }
         // // public int reward_max { get; set; }
         // [JsonIgnore]
-        // public List<string> dates_of_birth_used { get; set; }
+        //public List<string> dates_of_birth_used { get; set; }
+        //public List<string> dates_of_birth_used { get; set; }
+
+
+
+        // Propriedade de navegação para DataNascimentoSuspeitoModel
+        [NotMapped]
+        public List<string> dates_of_birth_used { get; set; }
         // // public string place_of_birth { get; set; }
         // //[JsonIgnore]
         //// public List<string> locations { get; set; }

@@ -1,4 +1,5 @@
 ﻿
+using Idwall.Model;
 using IdWall.Model;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +23,14 @@ namespace IdWall.Context
 
             protected DataBaseContext()
             {
+            }
+
+            protected override void OnModelCreating(ModelBuilder modelBuilder)
+            {
+                modelBuilder.Entity<DataNascimentoSuspeitoModel>()
+                    .HasKey(d => new { d.uid, d.dates_of_birth_used });
+
+                base.OnModelCreating(modelBuilder);
             }
 
         }

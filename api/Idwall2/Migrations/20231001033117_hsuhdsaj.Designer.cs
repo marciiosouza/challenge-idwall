@@ -2,6 +2,7 @@
 using IdWall.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 
@@ -10,9 +11,11 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace Idwall.Migrations
 {
     [DbContext(typeof(AppDbContext.DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20231001033117_hsuhdsaj")]
+    partial class hsuhdsaj
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,7 +74,8 @@ namespace Idwall.Migrations
                         .HasColumnType("NVARCHAR2(450)");
 
                     b.Property<string>("dates_of_birth_used")
-                        .HasColumnType("NVARCHAR2(450)");
+                        .HasColumnType("NVARCHAR2(450)")
+                        .HasColumnOrder(1);
 
                     b.HasKey("uid", "dates_of_birth_used");
 
@@ -81,12 +85,17 @@ namespace Idwall.Migrations
             modelBuilder.Entity("Idwall.Model.DataNascimentoSuspeitoModel", b =>
                 {
                     b.HasOne("IdWall.Model.SuspeitoModel", "Suspeito")
-                        .WithMany()
+                        .WithMany("dates_of_birth_used")
                         .HasForeignKey("uid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Suspeito");
+                });
+
+            modelBuilder.Entity("IdWall.Model.SuspeitoModel", b =>
+                {
+                    b.Navigation("dates_of_birth_used");
                 });
 #pragma warning restore 612, 618
         }

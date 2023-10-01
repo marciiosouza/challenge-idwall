@@ -66,21 +66,21 @@ namespace IdWall.Controllers
             }
         }
 
-        //[HttpPost]
-        //public ActionResult<SuspeitoModel> Post([FromBody] SuspeitoModel suspeitoModel)
-        //{
-        //    try
-        //    {
-        //        suspeitoRepository.InserirSuspeito(suspeitoModel);
-        //        var location = new Uri(Request.GetEncodedUrl() + "/" + suspeitoModel.SuspeitoId);
-        //        return Created(location, suspeitoModel);
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        //return BadRequest(new {message = $"Não foi possível cadastrar orepresentante"});
-        //        return BadRequest(ex);
-        //    }
-        //}
+        [HttpPost]
+        public ActionResult<SuspeitoModel> Post([FromBody] SuspeitoModel suspeitoModel)
+        {
+            try
+            {
+                suspeitoRepository.InserirSuspeito(suspeitoModel);
+                var location = new Uri(Request.GetEncodedUrl() + "/" + suspeitoModel.uid);
+                return Created(location, suspeitoModel);
+            }
+            catch (Exception ex)
+            {
+                //return BadRequest(new {message = $"Não foi possível cadastrar orepresentante"});
+                return BadRequest(ex);
+            }
+        }
 
 
         //[HttpDelete("{id:int}")]
@@ -124,7 +124,7 @@ namespace IdWall.Controllers
         //}
 
 
-        [HttpGet("nome/{nome}" )]
+        [HttpGet("nome/{nome}")]
         public ActionResult<List<SuspeitoModel>> ProcurarNome([FromRoute] string nome)
         {
             var Suspeito = suspeitoRepository.ConsultarPorNome(nome);
@@ -199,6 +199,15 @@ namespace IdWall.Controllers
                                         //var ExisteSuspeito = dataBaseContext.suspeito.Where(r => r.uid.Contains(item.uid)).FirstOrDefault<SuspeitoModel>();
                                         if (existeSuspeito == false)
                                         {
+
+                                        // string json = @"{
+                                        //    ""dates_of_birth_used"": [
+                                        //        ""string1"",
+                                        //        ""string2"",
+                                        //        ""string3""
+                                        //    ]
+                                        //}";
+
                                             var entity = new SuspeitoModel();
                                             entity.uid = item.uid;
                                             entity.description = item.description;
@@ -206,6 +215,11 @@ namespace IdWall.Controllers
                                             entity.title = item.title;
                                             entity.sex = item.sex;
                                             entity.status = item.status;
+
+                                            // Combina os valores do array em uma única string separada por vírgulas
+
+                                            //var jsonData = JsonConvert.DeserializeObject<SuspeitoModel>(json);
+                                            //entity.dates_of_birth_used = string.Join(", ", jsonData.dates_of_birth_used);
 
                                             suspeitoRepository.API(entity);
                                         }

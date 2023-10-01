@@ -27,6 +27,7 @@ export const Cadastro = () => {
   const handleShow = () => setShow(true)
 
   const handleCadastro = async () => {
+    const randomNum = Math.floor(Math.random() * (100 - 1 + 1)) + 1
     try {
       const response = await fetch(`${API}/Suspeito`, {
         method: "POST",
@@ -34,13 +35,16 @@ export const Cadastro = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          nome: nomeSuspeito,
-          classificacao: classificacao,
-          sexo: sexoSuspeito,
-          nacionalidade: nacionalidadeSuspeito,
+          uid : randomNum ,
+          title: nomeSuspeito,
+          description: classificacao,
+          dates_of_birth_used : [],
+          sex: sexoSuspeito,
+          nationality: nacionalidadeSuspeito,
         }),
       })
       if (response.ok) {
+        confirm.log(teste )
         setNomeSuspeito("")
         setDataNascimentoSuspeito("")
         setSexoSuspeito("")
@@ -49,6 +53,7 @@ export const Cadastro = () => {
         setShow(false) // Feche o modal
         navigate("/admin") // Redirecione para a página de sucesso
       } else {
+        
         console.error("Erro ao cadastrar o suspeito.")
       }
     } catch (error) {
@@ -66,6 +71,8 @@ export const Cadastro = () => {
         },
       });
       if (response.ok) {
+        
+       
         const data = await response.json();
         setResultadosPesquisa(data)
         // Faça algo com os dados retornados, como atualizar o estado ou exibir na tela.
@@ -148,7 +155,7 @@ export const Cadastro = () => {
               <Button className="button-adm" onClick={() => handlePesquisaNome(nomeSuspeito)} >
                 Pesquisar
               </Button>
-              <Button className="button-adm-cadastro" >
+              <Button className="button-adm-cadastro" onClick={handleShow} > 
                 Cadastrar
               </Button>
             </div>
@@ -248,7 +255,7 @@ export const Cadastro = () => {
           <Button className="button-adm" onClick={handleClose}>
             Fechar
           </Button>
-          <Button className="button-adm" onClick={handleCadastro}>
+          <Button className="button-adm" onClick={handleCadastro} >
             Cadastrar
           </Button>
         </Modal.Footer>
