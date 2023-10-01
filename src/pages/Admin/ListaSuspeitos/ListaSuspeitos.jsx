@@ -69,31 +69,38 @@ export const ListaSuspeitos = () => {
                 <th>Nacionalidade</th>
                 <th>Classificação</th>
                 <th>Departamento</th>
-                <th>Ação</th>
+                <th>Status</th>
               </tr>
             </thead>
 
             <tbody>
-              {suspeitos.map((suspeito, index) => (
-                <tr key={index} className="custom-table">
-                  <td>{suspeito.nome}</td>
-                  <td>{suspeito.dataNascimento}</td>
-                  <td>{suspeito.sexo}</td>
-                  <td>{suspeito.nacionalidade}</td>
-                  <td>{suspeito.classificacao}</td>
-                  <td>{suspeito.departamento}</td>
-                  <td>
-                    <Button
-                      className="login"
-                      onClick={() =>
-                        handleDeleteSuspeito(suspeito.SuspeitoId, index)
-                      }
-                    >
-                      Excluir
-                    </Button>
-                  </td>
+              {suspeitos.length > 0 ? (
+                suspeitos.map((suspeito, index) => (
+                  <tr key={suspeito.uid} className="custom-table">
+                    <td>{suspeito.title}</td>
+                    <td>{suspeito.dataNascimento}</td>
+                    <td>{suspeito.sex}</td>
+                    <td>{suspeito.nationality}</td>
+                    <td>{suspeito.classificacao}</td>
+                    <td>{suspeito.departamento}</td>
+                    <td>{suspeito.status}</td>
+                    <td>
+                      <Button
+                        className="login"
+                        onClick={() =>
+                          handleDeleteSuspeito(suspeito.SuspeitoId, index)
+                        }
+                      >
+                        Excluir
+                      </Button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="7">Carregando os vagabundos...</td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </Table>
         </div>

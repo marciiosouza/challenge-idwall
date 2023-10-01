@@ -1,4 +1,5 @@
-﻿using IdWall.Model;
+﻿
+using IdWall.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace IdWall.Context
@@ -10,6 +11,7 @@ namespace IdWall.Context
             // Propriedade que será responsável pelo acesso a tabela de Pessoa
             public DbSet<SuspeitoModel> suspeito { get; set; }
             public DbSet<UsuarioModel> usuario { get; set; }
+            //public DbSet<SuspeitoInterpolModel> suspeitoInterpol { get; set; }
 
 
 

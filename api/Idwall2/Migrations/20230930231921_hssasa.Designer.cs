@@ -11,8 +11,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace Idwall.Migrations
 {
     [DbContext(typeof(AppDbContext.DataBaseContext))]
-    [Migration("20230930023350_teste")]
-    partial class teste
+    [Migration("20230930231921_hssasa")]
+    partial class hssasa
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,35 +26,30 @@ namespace Idwall.Migrations
 
             modelBuilder.Entity("IdWall.Model.SuspeitoModel", b =>
                 {
-                    b.Property<int>("SuspeitoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)")
-                        .HasColumnName("SUSPEITOID");
+                    b.Property<string>("uid")
+                        .HasColumnType("NVARCHAR2(450)");
 
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SuspeitoId"));
-
-                    b.Property<string>("Classificacao")
+                    b.Property<string>("description")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(1)")
-                        .HasColumnName("CLASSIFICACAO");
+                        .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<string>("Nacionalidade")
+                    b.Property<string>("nationality")
                         .IsRequired()
-                        .HasMaxLength(2)
-                        .HasColumnType("NVARCHAR2(2)")
-                        .HasColumnName("NACIONALIDADE");
+                        .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("sex")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)")
-                        .HasColumnName("NOME");
+                        .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<string>("Sexo")
+                    b.Property<string>("status")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(1)")
-                        .HasColumnName("SEXO");
+                        .HasColumnType("NVARCHAR2(2000)");
 
-                    b.HasKey("SuspeitoId");
+                    b.Property<string>("title")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.HasKey("uid");
 
                     b.ToTable("Suspeito");
                 });

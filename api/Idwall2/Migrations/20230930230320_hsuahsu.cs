@@ -5,7 +5,7 @@
 namespace Idwall.Migrations
 {
     /// <inheritdoc />
-    public partial class teste : Migration
+    public partial class hsuahsu : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -14,24 +14,23 @@ namespace Idwall.Migrations
                 name: "Suspeito",
                 columns: table => new
                 {
-                    SUSPEITOID = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    NOME = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
-                    CLASSIFICACAO = table.Column<string>(type: "NVARCHAR2(1)", nullable: false),
-                    SEXO = table.Column<string>(type: "NVARCHAR2(1)", nullable: false),
-                    NACIONALIDADE = table.Column<string>(type: "NVARCHAR2(2)", maxLength: 2, nullable: false)
+                    uid = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
+                    title = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
+                    description = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
+                    sex = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
+                    nationality = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Suspeito", x => x.SUSPEITOID);
+                    table.PrimaryKey("PK_Suspeito", x => x.uid);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Usuario",
                 columns: table => new
                 {
-                    Email = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
-                    Senha = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false)
+                    Email = table.Column<string>(type: "NVARCHAR2(450)", nullable: true),
+                    Senha = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true)
                 },
                 constraints: table =>
                 {

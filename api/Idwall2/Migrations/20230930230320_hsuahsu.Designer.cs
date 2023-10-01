@@ -2,6 +2,7 @@
 using IdWall.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 
@@ -10,9 +11,11 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace Idwall.Migrations
 {
     [DbContext(typeof(AppDbContext.DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230930230320_hsuahsu")]
+    partial class hsuahsu
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,10 +41,6 @@ namespace Idwall.Migrations
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<string>("status")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
                     b.Property<string>("title")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
@@ -63,24 +62,6 @@ namespace Idwall.Migrations
                     b.HasKey("Email");
 
                     b.ToTable("Usuario");
-                });
-
-            modelBuilder.Entity("Idwall.Model.SuspeitoInterpolModel", b =>
-                {
-                    b.Property<string>("entity_id")
-                        .HasColumnType("NVARCHAR2(450)");
-
-                    b.Property<string>("forename")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.HasKey("entity_id");
-
-                    b.ToTable("SuspeitoInterpol");
                 });
 #pragma warning restore 612, 618
         }

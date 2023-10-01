@@ -13,7 +13,7 @@ namespace IdWall.Repository
             dataBaseContext = ctx;
         }
 
-        public SuspeitoModel ConsultarPorId(int id)
+        public SuspeitoModel ConsultarPorId(string id)
         {
             var pessoa = dataBaseContext.suspeito.Find(id);
 
@@ -31,7 +31,7 @@ namespace IdWall.Repository
 
         public SuspeitoModel ConsultarPorNome(String nome)
         {
-            var pessoa = dataBaseContext.suspeito.Where(r => r.Nome.Contains(nome)).FirstOrDefault<SuspeitoModel>();
+            var pessoa = dataBaseContext.suspeito.Where(r => r.title.Contains(nome)).FirstOrDefault<SuspeitoModel>();
 
             return pessoa;
         }
@@ -46,19 +46,19 @@ namespace IdWall.Repository
         {
             //var suspeito = new SuspeitoModel { SuspeitoId = id };
 
-            dataBaseContext.suspeito.Remove(suspeitoModel); 
+            dataBaseContext.suspeito.Remove(suspeitoModel);
             dataBaseContext.SaveChanges();
         }
 
-        public IList<SuspeitoModel>ListarPorClassificacao(char classificacao)
-        {
-            var lista = dataBaseContext.suspeito.Where(e => e.Classificacao.Equals(classificacao)).ToList<SuspeitoModel>();
-            return lista;
-        }
+        //public IList<SuspeitoModel>ListarPorClassificacao(char classificacao)
+        //{
+        //var lista = dataBaseContext.suspeito.Where(e => e.Classificacao.Equals(classificacao)).ToList<SuspeitoModel>();
+        //return lista;
+        //}
 
-        public IList<SuspeitoModel>ListarPorNacionalidade(string nacionalidade)
+        public IList<SuspeitoModel> ListarPorNacionalidade(string nacionalidade)
         {
-            var lista = dataBaseContext.suspeito.Where(e => e.Nacionalidade.Equals(nacionalidade)).ToList<SuspeitoModel>();
+            var lista = dataBaseContext.suspeito.Where(e => e.nationality.Equals(nacionalidade)).ToList<SuspeitoModel>();
             return lista;
         }
 
@@ -68,10 +68,24 @@ namespace IdWall.Repository
             return contador;
         }
 
-        public int ContarPorNacionalidade(string nacionalidade)
+        //public int ContarPorNacionalidade(string nacionalidade)
+        //{
+        //var total = dataBaseContext.suspeito.Count(s => s.Nacionalidade == nacionalidade);
+        //return total;
+        //}
+
+        public void API(SuspeitoModel suspeitoModel)
         {
-            var total = dataBaseContext.suspeito.Count(s => s.Nacionalidade == nacionalidade);
-            return total;
+            dataBaseContext.suspeito.Add(suspeitoModel);
+            dataBaseContext.SaveChanges();
+        }
+
+        public bool ExisteSuspeito(string id)
+        {
+            // Verifique se existe um suspeito com o ID especificado no banco de dados.
+            bool suspeitoExiste = dataBaseContext.suspeito.Any(r => r.uid == id);
+
+            return suspeitoExiste;
         }
     }
 }
