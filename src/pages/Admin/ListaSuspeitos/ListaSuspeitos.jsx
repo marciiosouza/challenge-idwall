@@ -3,12 +3,14 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Pagination from "react-bootstrap/Pagination";
 import "./ListaSuspeitos.css"
+import { useListaSuspeitoContext } from "../../../contexts/ListaSuspeitoContext";
 
 export const ListaSuspeitos = () => {
   const [erro, setErro] = useState(null);
-  const [suspeitos, setSuspeitos] = useState([]);
+  // const [suspeitos, setSuspeitos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); // Comece com a página 1
   const itemsPerPage = 5; // Número de itens por página
+  const { resultadosPesquisa, setResultadosPesquisa, fetchSuspeitos, erro:erroctx } = useListaSuspeitoContext()
 
   const handleDeleteSuspeito = async (id, index) => {
     try {
@@ -21,9 +23,9 @@ export const ListaSuspeitos = () => {
 
       if (response.ok) {
         // Atualize o estado excluindo o suspeito pelo índice
-        const updatedSuspeitos = [...suspeitos];
+        const updatedSuspeitos = [...resultadosPesquisa];
         updatedSuspeitos.splice(index, 1);
-        setSuspeitos(updatedSuspeitos);
+        setResultadosPesquisa(updatedSuspeitos);
       } else {
         setErro("Erro ao excluir o suspeito.");
       }
@@ -38,37 +40,36 @@ export const ListaSuspeitos = () => {
   };
 
   useEffect(() => {
-    const fetchSuspeitos = async () => {
-      try {
-        const response = await fetch("https://localhost:7213/Suspeito", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+    // const fetchSuspeitos = async () => {
+    //   try {
+    //     const response = await fetch("https://localhost:7213/Suspeito", {
+    //       method: "GET",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     });
 
-        if (response.ok) {
-          const data = await response.json();
-          setSuspeitos(data);
-          console.log(data);
-          console.log("API");
-        } else {
-          setErro("Erro na resposta da API.");
-        }
-      } catch (error) {
-        console.error("Erro ao fazer a requisição à API:", error);
-        setErro("Tente novamente mais tarde.");
-      }
-    };
+    //     if (response.ok) {
+    //       const data = await response.json();
+    //       setResultadosPesquisa(data);
+    //       console.log(data);
+    //       console.log("API");
+    //     } else {
+    //       setErro("Erro na resposta da API.");
+    //     }
+    //   } catch (error) {
+    //     console.error("Erro ao fazer a requisição à API:", error);
+    //     setErro("Tente novamente mais tarde.");
+    //   }
+    // };
 
     fetchSuspeitos();
   }, []);
 
-  const totalPages = Math.ceil(suspeitos.length / itemsPerPage);
+  const totalPages = Math.ceil(resultadosPesquisa?.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-
-  const currentPageSuspeitos = suspeitos.slice(startIndex, endIndex);
+  const currentPageSuspeitos = resultadosPesquisa.slice(startIndex, endIndex);
 
   return (
     <section>

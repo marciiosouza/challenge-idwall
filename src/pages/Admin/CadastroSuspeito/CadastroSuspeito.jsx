@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
@@ -8,6 +8,9 @@ import { Row, Container, Col } from "react-bootstrap"
 import "./CadastroSuspeito.css"
 import search from "../../../assets/images/search.svg"
 import iconSuspeito from '../../../assets/images/lista_suspeito.svg';
+import { useListaSuspeitoContext } from "../../../contexts/ListaSuspeitoContext"
+
+const API = import.meta.env.VITE_API_BASE_URL
 
 export const Cadastro = () => {
   const navigate = useNavigate()
@@ -18,14 +21,14 @@ export const Cadastro = () => {
   const [classificacao, setClassificacao] = useState("")
   const [nacionalidadeSuspeito, setNacionalidadeSuspeito] = useState("")
   const [show, setShow] = useState(false)
-  
+  const { setResultadosPesquisa, fetchSuspeitos } = useListaSuspeitoContext()
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
   const handleCadastro = async () => {
     try {
-      const response = await fetch("https://localhost:7213/Suspeito", {
+      const response = await fetch(`${API}/Suspeito`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,12 +56,10 @@ export const Cadastro = () => {
     }
   }
 
-  const [resultadosPesquisa, setResultadosPesquisa] = useState([]);
-
+  
   const handlePesquisaNome = async (nome) => {
-    
     try {
-      const response = await fetch(`https://localhost:7213/Suspeito/nome/${nome}`, {
+      const response = await fetch(`${API}/Suspeito/nome/${nome}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -66,10 +67,9 @@ export const Cadastro = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        setResultadosPesquisa(data)  
-        
+        setResultadosPesquisa(data)
         // Faça algo com os dados retornados, como atualizar o estado ou exibir na tela.
-        //console.log(data);
+        console.log(data);
       } else {
         console.error("Erro ao fazer a pesquisa por nome.");
       }
@@ -77,7 +77,12 @@ export const Cadastro = () => {
       console.error("Erro ao fazer a requisição à API:", error);
     }
   };
-  
+
+  useEffect(() => {
+    if (nomeSuspeito?.length <= 0) {
+      fetchSuspeitos();
+    }
+  }, [nomeSuspeito])
 
 
   return (
@@ -152,6 +157,7 @@ export const Cadastro = () => {
         </div>
       </section>
       
+
       <div className="container">
         <h2 className="destaque-adm">
           <img className="icons-adm" src={iconSuspeito} alt="Lupa de Pesquisa" />Resultado
@@ -163,7 +169,7 @@ export const Cadastro = () => {
 
 
 
-
+      {/* MODAL */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Cadastrar Suspeito</Modal.Title>

@@ -17,6 +17,7 @@ export const TelaAdmin = () => {
       <BannerAdm />
       <CadastroSuspeito />
       <ListaSuspeitos />
+      
       <LegendaAdm />
 
 
