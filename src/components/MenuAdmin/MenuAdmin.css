@@ -1,9 +1,23 @@
 .btn-admin {
-  width: 110px;
-  color: var(--color-primary);
+  width: 80px;
+  color: var(--color-font);
   font-weight: 500;
+  background-color: var(--color-primary);
+}
+
+.btn-admin:hover {
+ 
+  color: var(--color-font);
+  font-weight: 500;
+  background-color: var(--color-primary);
 }
 
 .custom-menu-adm {
-  font-weight: 500;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-right: 25px;
+}
+
+.custom-menu {
+  font-weight: 700;
 }

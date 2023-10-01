@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Pagination from "react-bootstrap/Pagination";
+import "./ListaSuspeitos.css"
 
 export const ListaSuspeitos = () => {
   const [erro, setErro] = useState(null);
   const [suspeitos, setSuspeitos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); // Comece com a página 1
-  const itemsPerPage = 10; // Número de itens por página
+  const itemsPerPage = 5; // Número de itens por página
 
   const handleDeleteSuspeito = async (id, index) => {
     try {
@@ -70,7 +71,7 @@ export const ListaSuspeitos = () => {
   const currentPageSuspeitos = suspeitos.slice(startIndex, endIndex);
 
   return (
-    <section className="text-center">
+    <section>
       <div className="container">
         <div className="tabela-suspeitos">
           <Table responsive="sm" striped hover>
@@ -119,35 +120,38 @@ export const ListaSuspeitos = () => {
           </Table>
         </div>
 
-        <Pagination>
-          <Pagination.First
-            onClick={() => handlePageChange(1)}
-            disabled={currentPage === 1}
-          />
-          <Pagination.Prev
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-          />
+        <div className="pagination-container">
+          <Pagination className="justify-content-center">
+            <Pagination.First
+              onClick={() => handlePageChange(1)}
+              disabled={currentPage === 1}
+            />
+            <Pagination.Prev
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            />
 
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <Pagination.Item
-              key={index}
-              active={index + 1 === currentPage}
-              onClick={() => handlePageChange(index + 1)}
-            >
-              {index + 1}
-            </Pagination.Item>
-          ))}
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <Pagination.Item
+                key={index}
+                active={index + 1 === currentPage}
+                onClick={() => handlePageChange(index + 1)}
+                className="custom-pagination-item"
+              >
+                {index + 1}
+              </Pagination.Item>
+            ))}
 
-          <Pagination.Next
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-          />
-          <Pagination.Last
-            onClick={() => handlePageChange(totalPages)}
-            disabled={currentPage === totalPages}
-          />
-        </Pagination>
+            <Pagination.Next
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            />
+            <Pagination.Last
+              onClick={() => handlePageChange(totalPages)}
+              disabled={currentPage === totalPages}
+            />
+          </Pagination>
+        </div>
       </div>
     </section>
   );

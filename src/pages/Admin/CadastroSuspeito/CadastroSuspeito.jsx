@@ -9,7 +9,7 @@ import "./CadastroSuspeito.css"
 import search from "../../../assets/images/search.svg"
 import iconSuspeito from '../../../assets/images/lista_suspeito.svg';
 
-export const Cadastro = (props) => {
+export const Cadastro = () => {
   const navigate = useNavigate()
 
   const [nomeSuspeito, setNomeSuspeito] = useState("")

@@ -47,9 +47,8 @@ export const MenuAdmin = () => {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text style={{ marginRight: "15px" }}>
-            Seja bem-vindo:&nbsp;{" "}
-            <span className="custom-menu-adm">
-              {saudacao} {nomeUsuario}
+            
+            <span className="custom-menu"> Olá&nbsp;{saudacao} </span> <span className="custom-menu-adm"> {nomeUsuario}
             </span>
           </Navbar.Text>
         </Navbar.Collapse>
