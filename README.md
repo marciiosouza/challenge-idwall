@@ -2,13 +2,13 @@
   💻<br>Challenge FIAP | idwall
 </h1>
 
-![Resultado final do projeto](/public/apresentacao-sistema.png)
+![Resultado final do projeto](/public/capa-projeto.png)
 
-<h4 align="center"><a href="">Clique para visitar o projeto</a></h4>
+<h4 align="center"><a href="https://idwall.marciosouza.net.br/">Clique para visitar o projeto</a></h4>
 
 ## 📚 Seções
 
-O site é composto por seis seções:
+O site é composto por cinco seções:
 
 - **Home:** Nele temos uma breve apresentação;
 - **Sobre o Projeto:** Nessa seção possui uma breve descrição dizendo um pouco sobre projeto;
@@ -24,26 +24,37 @@ Sistema de administração, consulta e cadastro de suspeitos:
 - **Cadastrar:** Ao clicar abrirá um **modal** para a inserção de dados de suspeitos;
 - **Delete:** Apagada os suspeitos inserido, tanto na visualização do front-end quanto ao bando de dados;
 
-![Resultado final do projeto](/public/apresentacao-admin.png)
+![Resultado final do projeto](/public/capa-administrador.png)
 
 ---
-## 💼 Tecnologias utilizadas
+## 💻 Projeto
 
-Para o desenvolvimento deste site utilizamos as seguintes tecnologias:
+Dentro das configurações de diretórios do projeto, encontramos uma pasta denominada **"api"**. Esta pasta desempenha o papel de hospedar o nosso backend, que inclui as conexões com o banco de dados Oracle. Ela é responsável por processar as solicitações vindas do frontend.
 
-**Criação do Layout**
-- Para a criação das telas utilizamos o figma;
-- <a href="https://www.figma.com/proto/QliehCzfTH4bFvBs0xp9wl/Challenger-idwall---FIAP?page-id=0%3A1&type=design&node-id=395-2&t=u4KlNbB2JXsT3uE0-0&scaling=contain">Projeto Figma</a>
-  
-**Front-end**
-- React + Vite;
-- Framework - Bootstrap;
+- [Acesse o projeto finalizado, online](https://github.com/marciiosouza/Challenge_Idwall)
 
-**API**
-- .NET & C#;
+---
 
-**Banco de Dados**
-- Oracle;
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- Vite + React
+- Figma
+- Git e Github
+- **API** REST full
+- **Framework:** ASP .NET Core, Entity Framework Core
+- **Banco de dados:** Oracle
+
+**IDEs:**
+- Visual Studio 
+- Visual Studio Code 
+
+---
+
+## 🔖 Layout
+
+Você pode visualizar o layout do projeto através [DESSE LINK](https://bit.ly/46a47PP). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
 
 ---
 
