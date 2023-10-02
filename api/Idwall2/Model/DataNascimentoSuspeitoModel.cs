@@ -8,9 +8,10 @@ namespace Idwall.Model
     [Table("DataNascimentoSuspeito")]
     public class DataNascimentoSuspeitoModel
     {
-        [Key]
+        
         public string uid { get; set; }
-        [Key]
+
+        [NotMapped]
         public string dates_of_birth_used { get; set; }
 
         [ForeignKey("uid")]
@@ -20,5 +21,5 @@ namespace Idwall.Model
 
 
 
-    
+
 }

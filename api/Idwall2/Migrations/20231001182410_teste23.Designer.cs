@@ -2,6 +2,7 @@
 using IdWall.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 
@@ -10,9 +11,11 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace Idwall.Migrations
 {
     [DbContext(typeof(AppDbContext.DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20231001182410_teste23")]
+    partial class teste23
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,7 +29,7 @@ namespace Idwall.Migrations
                     b.Property<string>("uid")
                         .HasColumnType("NVARCHAR2(450)");
 
-                    b.Property<string>("departamento")
+                    b.Property<string>("DatesOfBirthUsed")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
@@ -67,6 +70,32 @@ namespace Idwall.Migrations
                     b.HasKey("Email");
 
                     b.ToTable("Usuario");
+                });
+
+            modelBuilder.Entity("Idwall.Model.DataNascimentoSuspeitoModel", b =>
+                {
+                    b.Property<string>("dates_of_birth_used")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("uid")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(450)");
+
+                    b.HasIndex("uid");
+
+                    b.ToTable("DataNascimentoSuspeito");
+                });
+
+            modelBuilder.Entity("Idwall.Model.DataNascimentoSuspeitoModel", b =>
+                {
+                    b.HasOne("IdWall.Model.SuspeitoModel", "Suspeito")
+                        .WithMany()
+                        .HasForeignKey("uid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Suspeito");
                 });
 #pragma warning restore 612, 618
         }

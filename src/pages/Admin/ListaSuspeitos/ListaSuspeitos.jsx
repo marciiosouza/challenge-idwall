@@ -13,7 +13,9 @@ export const ListaSuspeitos = () => {
   const { resultadosPesquisa, setResultadosPesquisa, fetchSuspeitos, erro:erroctx } = useListaSuspeitoContext()
 
   const handleDeleteSuspeito = async (id, index) => {
+    
     try {
+      console.log(id)
       const response = await fetch(`https://localhost:7213/Suspeito/${id}`, {
         method: "DELETE",
         headers: {
@@ -79,10 +81,8 @@ export const ListaSuspeitos = () => {
             <thead>
               <tr>
                 <th>Nome</th>
-                <th>Data de Nascimento</th>
                 <th>Sexo</th>
                 <th>Nacionalidade</th>
-                <th>Classificação</th>
                 <th>Departamento</th>
                 <th>Status</th>
                 <th>Ação</th>
@@ -94,17 +94,15 @@ export const ListaSuspeitos = () => {
                 currentPageSuspeitos.map((suspeito, index) => (
                   <tr key={suspeito.uid} className="custom-table">
                     <td>{suspeito.title}</td>
-                    <td>{suspeito.dataNascimento}</td>
                     <td>{suspeito.sex}</td>
                     <td>{suspeito.nationality}</td>
-                    <td>{suspeito.classificacao}</td>
                     <td>{suspeito.departamento}</td>
                     <td>{suspeito.status}</td>
                     <td>
                       <Button
                         className="login"
                         onClick={() =>
-                          handleDeleteSuspeito(suspeito.SuspeitoId, index)
+                          handleDeleteSuspeito(suspeito.uid, index)
                         }
                       >
                         Excluir

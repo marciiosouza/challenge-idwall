@@ -20,6 +20,7 @@ export const Cadastro = () => {
   const [sexoSuspeito, setSexoSuspeito] = useState("")
   const [classificacao, setClassificacao] = useState("")
   const [nacionalidadeSuspeito, setNacionalidadeSuspeito] = useState("")
+  const [ departamento , setDepartamento] = useState("")
   const [show, setShow] = useState(false)
   const { setResultadosPesquisa, fetchSuspeitos } = useListaSuspeitoContext()
 
@@ -27,24 +28,37 @@ export const Cadastro = () => {
   const handleShow = () => setShow(true)
 
   const handleCadastro = async () => {
-    const randomNum = Math.floor(Math.random() * (100 - 1 + 1)) + 1
+    const randomNum = (Math.floor(Math.random() * (10000 - 1 + 1)) + 1).toString()
+    console.log(randomNum)
+    console.log(nomeSuspeito)
+    console.log(classificacao)
+    console.log(sexoSuspeito)
+    console.log(departamento)
+    console.log(nacionalidadeSuspeito)
+    
+
+    
     try {
       const response = await fetch(`${API}/Suspeito`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          uid : randomNum ,
-          title: nomeSuspeito,
-          description: classificacao,
-          dates_of_birth_used : [],
-          sex: sexoSuspeito,
-          nationality: nacionalidadeSuspeito,
-        }),
+        body: JSON.stringify(
+          {
+            uid: randomNum,
+            title: nomeSuspeito,
+            description: nomeSuspeito,
+            datesOfBirthUsed: "  ",
+            status: "Sem informação",
+            sex: sexoSuspeito,
+            nationality: nacionalidadeSuspeito,
+            departamento: departamento
+          }),
+    
       })
       if (response.ok) {
-        confirm.log(teste )
+        console.log("Feito")
         setNomeSuspeito("")
         setDataNascimentoSuspeito("")
         setSexoSuspeito("")
@@ -53,7 +67,7 @@ export const Cadastro = () => {
         setShow(false) // Feche o modal
         navigate("/admin") // Redirecione para a página de sucesso
       } else {
-        
+    
         console.error("Erro ao cadastrar o suspeito.")
       }
     } catch (error) {
@@ -136,10 +150,10 @@ export const Cadastro = () => {
             <Col  md={4} >
               <div className="mb-3">
                 <FloatingLabel controlId="floatingSelect" label="Departamento">
-                  <Form.Select aria-label="Departamento" required>
+                  <Form.Select  aria-label="Departamento" required  >
                     <option></option>
-                    <option value="1">FBI</option>
-                    <option value="2">Interpol</option>
+                    <option value="FBI">FBI</option>
+                    <option value="Interpol">Interpol</option>
                   </Form.Select>
                 </FloatingLabel>
               </div>
@@ -189,6 +203,7 @@ export const Cadastro = () => {
                   type="name"
                   placeholder="Nome"
                   value={nomeSuspeito}
+                  
                   onChange={(e) => setNomeSuspeito(e.target.value)}
                 />
               </FloatingLabel>
@@ -240,11 +255,11 @@ export const Cadastro = () => {
               </FloatingLabel>
             </div>
             <div className="mb-3">
-              <FloatingLabel controlId="floatingSelect" label="Departamento">
+              <FloatingLabel controlId="floatingSelect" onChange={(e) => setDepartamento(e.target.value)}  value={departamento}  label="Departamento">
                 <Form.Select aria-label="Departamento" required>
                   <option></option>
-                  <option value="1">FBI</option>
-                  <option value="2">Interpol</option>
+                  <option value="FBI">FBI</option>
+                  <option value="Interpol">Interpol</option>
                 </Form.Select>
               </FloatingLabel>
             </div>

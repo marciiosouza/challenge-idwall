@@ -1,5 +1,6 @@
 ﻿
 
+using Idwall.Model;
 using IdWall.Model;
 using IdWall.Repository;
 using Microsoft.AspNetCore.Http.Extensions;
@@ -83,30 +84,30 @@ namespace IdWall.Controllers
         }
 
 
-        //[HttpDelete("{id:int}")]
-        //public ActionResult<SuspeitoModel> DeletarSuspeito([FromRoute] string id)
-        //{
-        //    try
-        //    {
-        //        var suspeitoModel = suspeitoRepository.ConsultarPorId(id);
+        [HttpDelete("{id}")]
+        public ActionResult<SuspeitoModel> DeletarSuspeito([FromRoute] string id)
+        {
+            try
+            {
+                var suspeitoModel = suspeitoRepository.ConsultarPorId(id);
 
-        //        if (suspeitoModel != null)
-        //        {
-        //            suspeitoRepository.ExcluirSuspeito(suspeitoModel);
-        //            // Retorno Sucesso.
-        //            // Efetuou a exclusão, porém sem necessidade de informar os dados.
-        //            return NoContent();
-        //        }
-        //        else
-        //        {
-        //            return NotFound("Não encontrado!");
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return BadRequest();
-        //    }
-        //}
+                if (suspeitoModel != null)
+                {
+                    suspeitoRepository.ExcluirSuspeito(suspeitoModel);
+                    // Retorno Sucesso.
+                    // Efetuou a exclusão, porém sem necessidade de informar os dados.
+                    return NoContent();
+                }
+                else
+                {
+                    return NotFound("Não encontrado!");
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+        }
 
 
         //[HttpGet("classificacao/{classificacao}")]
@@ -185,7 +186,7 @@ namespace IdWall.Controllers
 
                                 // Leia o conteúdo da resposta como uma string.
                                 string content = await response.Content.ReadAsStringAsync();
-
+                                Console.WriteLine(content);
                                 // Desserialize o JSON em um objeto ApiResponse.
                                 var apiResponse = JsonConvert.DeserializeObject<Root>(content);
 
@@ -200,30 +201,73 @@ namespace IdWall.Controllers
                                         if (existeSuspeito == false)
                                         {
 
-                                        // string json = @"{
-                                        //    ""dates_of_birth_used"": [
-                                        //        ""string1"",
-                                        //        ""string2"",
-                                        //        ""string3""
-                                        //    ]
-                                        //}";
+                                            string json = @"{
+                                                ""dates_of_birth_used"": [
+                                                    ""string1"",
+                                                    ""string2"",
+                                                    ""string3""
+                                                ]
+                                            }";
+
 
                                             var entity = new SuspeitoModel();
+                                           // var entity2 = new DataNascimentoSuspeitoModel();
                                             entity.uid = item.uid;
                                             entity.description = item.description;
                                             entity.nationality = item.nationality;
                                             entity.title = item.title;
                                             entity.sex = item.sex;
                                             entity.status = item.status;
+                                            entity.departamento = "FBI";
+                                            entity.DatesOfBirthUsed = item.DatesOfBirthUsed;
+                                            if (entity.status == "na")
+                                            {
+                                                entity.status = "Sem atualização";
+                                            }
+                                            if (entity.status == "captured")
+                                            {
+                                                entity.status = "Capturado";
+                                            }
+                                            if (entity.description == null){
+                                                entity.description = "";
+                                            }
+                                            if (entity.sex == null || entity.sex == "") 
+                                            {
+                                                entity.sex = "Sem informaçao";
+                                            }
+                                            if (entity.sex == "Male")
+                                            {
+                                                entity.sex = "Masculino";
+                                            }
+                                            if (entity.sex == "Female")
+                                            {
+                                                entity.sex = "Feminino";
+                                            }
 
+                                            if (entity.nationality == "" || entity.nationality == null)
+                                            {
+                                                entity.nationality = "Sem informação";
+                                            }
+                                            if (entity.description == "" || entity.description == null)
+                                            {
+                                                entity.description = "Sem informação";
+                                            }
+
+                                            if (entity.DatesOfBirthUsed == "" || entity.DatesOfBirthUsed == null)
+                                            {
+                                                entity.DatesOfBirthUsed = "Sem valor";
+                                            }
                                             // Combina os valores do array em uma única string separada por vírgulas
 
-                                            //var jsonData = JsonConvert.DeserializeObject<SuspeitoModel>(json);
-                                            //entity.dates_of_birth_used = string.Join(", ", jsonData.dates_of_birth_used);
+                                            //DataNascimentoSuspeitoModel data = JsonConvert.DeserializeObject<DataNascimentoSuspeitoModel>(json);
+                                            //entity2.uid = item.uid;
+                                            entity.DatesOfBirthUsed = string.Join(", ", item.DatesOfBirthUsed);
 
                                             suspeitoRepository.API(entity);
                                         }
                                     }
+                                    
+                                    
                                 }
                                 // Retorne uma resposta indicando que os dados foram exibidos no console.
                                 return Ok(apiResponse);
