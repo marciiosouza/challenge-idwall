@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "1JRRJDTegT5mPmAjVIfNzqUUzItqHVwwK8ORf8rabPQ=",
-  "Source": "Idwall",
-  "BasePath": "_content/Idwall",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"J3zLar2O98+pdu0G6NJj+4nKnvDJdnBFF6yyA0OWKSA=","Source":"Idwall","BasePath":"_content/Idwall","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}

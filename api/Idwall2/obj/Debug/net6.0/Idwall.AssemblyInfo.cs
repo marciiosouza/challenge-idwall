@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Idwall")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+45aca730836f018b7fc9884b04d3b5ac574af82c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Idwall")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Idwall")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

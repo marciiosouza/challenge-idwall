@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CFqDhXB2kNFDtrKg3hr9JzP/DFVs5pPiXzK0RjML7KEE8uUod8I+1anO7eF50qhd0cNkf2r3qdBiCDk9FG3t+g==",
+  "dgSpecHash": "2ek9YXMzhDU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\wagne\\Desktop\\Nova pasta (4)\\Challenge_Idwall\\api\\Idwall2\\Idwall.csproj",
+  "projectFilePath": "C:\\Users\\wagne\\Desktop\\challenge-idwall\\api\\Idwall2\\Idwall.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wagne\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
@@ -25,9 +25,11 @@
     "C:\\Users\\wagne\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\wagne\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\oracle.entityframeworkcore\\7.21.11\\oracle.entityframeworkcore.7.21.11.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\oracle.manageddataaccess.core\\3.21.110\\oracle.manageddataaccess.core.3.21.110.nupkg.sha512",
+    "C:\\Users\\wagne\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
