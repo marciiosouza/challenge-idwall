@@ -1,5 +1,23 @@
 using Microsoft.EntityFrameworkCore;
 using static IdWall.Context.AppDbContext;
+using System.IO;
+
+// Helper to load .env file
+void LoadEnv(string filePath)
+{
+    if (!File.Exists(filePath)) return;
+    foreach (var line in File.ReadAllLines(filePath))
+    {
+        var parts = line.Split('=', 2, StringSplitOptions.RemoveEmptyEntries);
+        if (parts.Length != 2) continue;
+        var key = parts[0].Trim();
+        var value = parts[1].Trim().Trim('"').Trim('\'');
+        Environment.SetEnvironmentVariable(key, value);
+    }
+}
+
+// Load .env from project root
+LoadEnv(Path.Combine(Directory.GetCurrentDirectory(), ".env"));
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +28,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
+
+// If it's a placeholder or empty, try to get from Environment
+if (string.IsNullOrEmpty(connectionString) || connectionString == "MYSQL_CONNECTION_STRING" || connectionString == "ORACLE_CONNECTION_STRING")
+{
+    connectionString = Environment.GetEnvironmentVariable(connectionString ?? "MYSQL_CONNECTION_STRING");
+}
 
 builder.Services.AddDbContext<DataBaseContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)).EnableSensitiveDataLogging(true));
 
